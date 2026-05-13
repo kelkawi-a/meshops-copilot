@@ -231,14 +231,14 @@ Place this in your project root (or any parent directory). The file is loaded au
 | `SUPERSET_DISCOVERY_ENABLED` | `true` / `false` — enable/disable live chart discovery (default `true`) |
 | `SUPERSET_DISCOVERY_MAX_CHARTS` | Max charts to fetch during discovery (default `500`) |
 
-You can also set them inline in the scenario's `superset:` block (lowest priority, useful for committing non-secret defaults):
+You can also set non-secret defaults inline in the scenario's `superset:` block (lowest priority — `.env` and env vars always win):
 
 ```yaml
 # scenarios/superset/my_instance.yaml
 superset:
   url: https://superset.company.com
   user: analyst
-  password: "${SUPERSET_PASSWORD}"   # still resolved from env at runtime
+  # Omit password here — set SUPERSET_PASSWORD in .env instead
 ```
 
 #### Discovery mode
@@ -251,10 +251,6 @@ knowledge of the schema required.
 ```bash
 # Auto-discover all charts on any Superset instance, then stress-test them
 meshops stress superset --scenario scenarios/superset/discovery.yaml
-
-# Or pass connection details inline without a scenario file
-meshops stress superset --scenario scenarios/superset/discovery.yaml \
-  --scenario scenarios/superset/discovery.yaml   # reuse discovery.yaml as template
 ```
 
 To use discovery against a different Superset instance, create a minimal scenario file:
@@ -265,7 +261,7 @@ name: my_instance
 superset:
   url: https://superset.company.com
   user: analyst
-  password: "${SUPERSET_PASSWORD}"
+  # Set SUPERSET_PASSWORD in .env — it takes priority over this block
 
 discovery:
   enabled: true
@@ -332,73 +328,194 @@ phases:
 | `scenarios/superset/concurrency.yaml` | Slowest 3 charts, aggressive concurrency ramp |
 | `scenarios/superset/discovery.yaml` | Discovery mode — adapts to any Superset instance |
 
+#### Test phases
+
+| Phase | What it measures |
+|---|---|
+| Warmup | Cache warm-up — fires nominated charts once (results discarded) |
+| Baseline | Serial latency per chart (configurable runs, default 3) |
+| Concurrency ramp | RPS, p50/p95/p99 as workers scale through configurable levels |
+| Breaking point | Pushes concurrency until the error rate exceeds a threshold |
+
+The benchmark chart for concurrency ramp and breaking point is auto-selected as
+the slowest chart from the baseline phase (by median latency) unless explicitly
+set with `chart:` in the scenario YAML.
+
 #### Output
 
-Results are written to `superset_stress_results.json` by default. Override with `--output`.
+Results are written to `superset_stress_results.json` by default. Override with `--output`:
+
+```bash
+meshops stress superset --scenario scenarios/superset/workshop.yaml \
+  --output reports/superset_run.json
+```
 
 ---
 
-### `grafana_diagnostics` — Prometheus metrics analysis via Grafana MCP
+### `grafana_diagnostics` — Prometheus metrics and Loki log analysis
 
-Analyses Prometheus metrics through the Grafana MCP server to diagnose CPU saturation, memory pressure, query bottlenecks, network and disk I/O issues across the data-mesh platform.
+Analyses Prometheus metrics **and** Loki logs to diagnose performance issues across the data-mesh platform. Automatically discovers application-specific metrics for the target component (e.g. `superset_query_duration_seconds`, `trino_execution_time_seconds`) rather than relying on generic container metrics alone. Accepts natural-language queries.
 
 #### Prerequisites
 
-1. A running Grafana instance (v9.0+) with at least one Prometheus datasource configured.
-2. A Grafana service account token with `datasources:read` and `datasources:query` permissions.
-3. [uv](https://docs.astral.sh/uv/getting-started/installation/) installed (used to run the MCP server via `uvx`).
-4. [OpenCode](https://opencode.ai) installed.
+1. A Grafana instance with Prometheus and/or Loki datasources (or direct URLs).
+2. A Grafana service account token (recommended — auto-discovers datasources and proxies queries).
+3. (Optional) An LLM API key for natural-language query interpretation and answer synthesis.
 
 #### Setup
 
-Set the Grafana connection variables in your `.env` file (or export them):
+Set the connection variables in your `.env` file (or export them):
 
 ```bash
-GRAFANA_URL=http://localhost:3000
+# Grafana (recommended — auto-discovers Prometheus + Loki datasources)
+GRAFANA_URL=https://grafana.company.com
 GRAFANA_TOKEN=glsa_xxxxxxxxxxxxxxxxxxxx
+
+# Or direct Prometheus URL (fallback when Grafana is not available)
+PROMETHEUS_URL=http://localhost:9090
+
+# Optional — enables natural-language query interpretation
+OPENAI_API_KEY=sk-...
+LLM_PROVIDER=openai
+LLM_MODEL=gpt-4o
 ```
 
-The project includes an `opencode.json` that configures the [Grafana MCP server](https://github.com/grafana/mcp-grafana) automatically. It reads `GRAFANA_URL` and `GRAFANA_TOKEN` from your environment.
-
-#### Usage with OpenCode
-
-Start OpenCode in the project root:
+#### Quick start
 
 ```bash
-cd meshops-copilot
-opencode
-```
+# Ask about a specific component — discovers its metrics + queries logs:
+meshops diagnose run "why was superset slow between 10:30 and 11:00"
 
-Then use the skill by asking the agent to analyse Prometheus metrics:
+# Focus on specific concerns:
+meshops diagnose run "check CPU and memory pressure on trino pods"
 
-```
-Analyse Prometheus metrics for the last hour and identify the top bottlenecks
-```
+# Look for errors:
+meshops diagnose run "are there any errors in superset logs in the last 30 minutes"
 
-```
-Use the prometheus-analysis skill to diagnose CPU and memory pressure across all pods
-```
-
-```
-Run a diagnostics report on query queue depth and network I/O from Grafana
-```
-
-The agent will automatically load the `prometheus-analysis` skill, which walks it through:
-
-1. Discovering available Prometheus datasources via `grafana_list_datasources`
-2. Listing available metric names and label dimensions
-3. Executing PromQL queries for CPU, memory, query queue, network, and disk I/O
-4. Computing latency histogram percentiles (p50/p90/p95/p99)
-5. Producing a structured report with a bottleneck summary and recommended actions
-
-#### CLI (planned)
-
-The programmatic `meshops diagnose run` command is not yet implemented. For now, use the OpenCode skill workflow above.
-
-```bash
-# Coming soon
+# Full diagnostic sweep (no LLM needed — runs all categories over the last hour):
 meshops diagnose run
+
+# Write results to JSON:
+meshops diagnose run "is there disk spill happening?" --output reports/diagnose.json
 ```
+
+#### How it works
+
+1. **Query interpretation** — the LLM extracts structured parameters (time window, component, categories) from your question. Without an LLM, keyword-based heuristics are used.
+2. **Metric discovery** — queries Prometheus for all metric names related to the target component, classifies them into categories (CPU, memory, latency, errors, throughput, queue, network, disk), and generates targeted PromQL queries from what's actually available.
+3. **Log analysis** — queries Loki (via Grafana proxy) for error and warning log lines matching the target component, computes error rates, and extracts log patterns.
+4. **Bottleneck detection** — ranks issues by severity (Critical / High / Medium) from both metrics and logs.
+5. **LLM synthesis** — synthesises the combined metric and log data into a concise answer.
+
+#### Metric categories
+
+| Category | What it finds |
+|---|---|
+| `cpu` | Container/process CPU usage, throttling |
+| `memory` | Working set, heap, GC pauses, OOM events |
+| `latency` | Request/query duration histograms (p95, avg) |
+| `errors` | Error counters, HTTP 5xx rates |
+| `throughput` | Request/query rates, rows processed |
+| `queue` | Queue depth, in-flight queries, thread pools |
+| `network` | Network receive/transmit rates, errors |
+| `disk` | Disk read/write IOPS and throughput |
+
+The tool discovers which of these exist for the target component rather than assuming fixed metric names.
+
+#### CLI options
+
+| Flag | Description |
+|---|---|
+| `QUERY` (positional) | Natural-language question (optional) |
+| `--output PATH` | Write JSON results to a file |
+| `--namespace REGEX` | Kubernetes namespace filter (default: all) |
+| `--window MINUTES` | Analysis window override (default: 60 or auto-detected) |
+| `--url URL` | Prometheus URL override |
+
+#### Without an LLM
+
+The tool works without an LLM configured — it runs all diagnostic categories over the last hour and prints the bottleneck table directly. The LLM adds:
+- Smart time-window extraction from your question
+- Component targeting (e.g. "superset" → filters metrics and logs)
+- Natural-language answer synthesis
+
+```bash
+# No LLM required — runs a full sweep:
+meshops diagnose run
+
+# Filter by namespace without LLM:
+meshops diagnose run --namespace "superset.*" --window 30
+```
+
+---
+
+### `noisy_neighbor` — Superset noisy-neighbor detector
+
+Identifies dashboards, charts, users, and databases that cause disproportionate
+Trino query load relative to their share of Superset activity.
+
+Example finding:
+> Dashboard "Sales Pipeline" accounts for 4% of views but 38% of Trino query time (noise ratio: 9.5x)
+
+#### How it works
+
+1. **Collect** — fetches Superset query history (`/api/v1/query/`), activity logs
+   (`/api/v1/log/`), and Trino query stats (`system.runtime.queries`).
+2. **Correlate** — joins Superset queries to Trino executions via the `tracking_url`
+   (contains the Trino `query_id`). Uncorrelated Trino queries with
+   `source = 'Apache Superset'` are still included for user-level analysis.
+3. **Analyze** — computes a **noise ratio** per entity per dimension:
+   `noise_ratio = cost_share / activity_share`. A ratio of 1.0 is proportionate;
+   ≥ 1.5 is moderate; ≥ 3.0 is critical.
+
+#### Dimensions
+
+| Dimension | Activity metric | Cost metric |
+|---|---|---|
+| `user` | Query count | Trino query duration |
+| `database` | Query count per Superset database | Trino query duration |
+| `dashboard` | View count (from log) | Log duration_ms |
+| `chart` | Render count (from log) | Log duration_ms |
+| `time_of_day` | Hourly query count | Trino query duration per hour |
+
+#### Quick start
+
+```bash
+# Analyze the last 7 days (default)
+meshops diagnose noisy-neighbor
+
+# Analyze the last 24 hours only
+meshops diagnose noisy-neighbor --lookback 24
+
+# Write results to a custom path
+meshops diagnose noisy-neighbor --output reports/noisy.json
+```
+
+#### Configuration
+
+Uses the same `.env` / config YAML for connection details:
+
+```bash
+SUPERSET_URL=https://superset.company.com
+SUPERSET_USER=analyst
+SUPERSET_PASSWORD=secret
+TRINO_URL=https://trino.company.com
+TRINO_USER=meshops
+TRINO_PASSWORD=secret
+```
+
+#### CLI options
+
+| Flag | Description |
+|---|---|
+| `--lookback HOURS` | How many hours of history to analyze (default: 168 = 7 days) |
+| `--output PATH` | Write JSON results to a file (default: `noisy_neighbor_results.json`) |
+
+#### Output
+
+Results are saved as JSON and printed as Rich tables to the terminal. Each
+dimension table shows entity name, activity count/share, cost in seconds/share,
+noise ratio, and severity classification.
 
 ---
 
