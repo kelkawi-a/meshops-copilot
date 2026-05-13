@@ -39,7 +39,7 @@ htmlcov/
 # Runtime output
 reports/*.md
 reports/*.json
-stress_results*.json
+*_results.json
 
 # Secrets
 .env
