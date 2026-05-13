@@ -1,0 +1,31 @@
+trino:
+  url: http://trino.demo.svc.cluster.local:8080
+  user: meshops-demo
+  password: "${TRINO_PASSWORD}"
+  verify_ssl: true
+  timeout: 300
+
+superset:
+  url: http://superset.demo.svc.cluster.local:8088
+  user: admin
+  password: "${SUPERSET_PASSWORD}"
+
+grafana:
+  url: http://grafana.demo.svc.cluster.local:3000
+  token: "${GRAFANA_TOKEN}"
+
+datahub:
+  gms_url: http://datahub-gms.demo.svc.cluster.local:8080
+  token: "${DATAHUB_TOKEN}"
+
+prometheus:
+  url: http://prometheus.demo.svc.cluster.local:9090
+
+llm:
+  provider: openai
+  model: gpt-4o
+  api_key: "${OPENAI_API_KEY}"
+
+output:
+  dir: ./reports
+  log_level: INFO

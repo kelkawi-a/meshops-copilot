@@ -1,0 +1,39 @@
+name: high_concurrency
+description: >
+  Full stress test focused on concurrency limits and the breaking point.
+  Ramps heavy_join from 1 to 32 workers, then pushes to 96 to find where
+  errors first appear. Mirrors the workshop stress-test script.
+
+trino:
+  url: http://localhost:8080
+  user: meshops
+
+# Omitting 'queries' triggers dynamic schema discovery.
+# The skill will walk information_schema, detect join relationships,
+# and synthesise appropriate queries for the target deployment.
+# To use built-in workshop queries instead, add:
+#   queries: [light_count, medium_agg, heavy_join, window_functions, high_cardinality, cross_catalog]
+
+phases:
+  warmup:
+    enabled: true
+    queries: [light_count, heavy_join, cross_catalog]
+  baseline:
+    enabled: true
+    runs: 5
+  concurrency_ramp:
+    enabled: true
+    query: heavy_join
+    levels: [1, 2, 4, 8, 16, 32]
+  mixed_workload:
+    enabled: true
+    workers_per_query: 2
+  memory_pressure:
+    enabled: true
+    queries: [cross_catalog, window_functions]
+    workers: 8
+  breaking_point:
+    enabled: true
+    query: heavy_join
+    levels: [32, 48, 64, 96]
+    stop_at_error_rate: 50

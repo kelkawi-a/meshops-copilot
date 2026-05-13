@@ -1,0 +1,28 @@
+name: light
+description: >
+  Quick sanity-check scenario. Runs a baseline only — no concurrency ramp,
+  no breaking point. Useful for verifying connectivity and basic query health.
+
+trino:
+  url: http://localhost:8080
+  user: meshops
+
+queries:
+  - light_count
+  - medium_agg
+
+phases:
+  warmup:
+    enabled: true
+    queries: [light_count]
+  baseline:
+    enabled: true
+    runs: 3
+  concurrency_ramp:
+    enabled: false
+  mixed_workload:
+    enabled: false
+  memory_pressure:
+    enabled: false
+  breaking_point:
+    enabled: false

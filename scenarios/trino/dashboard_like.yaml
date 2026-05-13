@@ -1,0 +1,36 @@
+name: dashboard_like
+description: >
+  Simulates a mixed-concurrency BI dashboard workload: lightweight counts,
+  medium aggregations, and window functions — the typical query mix driven
+  by a Superset or Grafana dashboard refresh cycle.
+
+trino:
+  url: http://localhost:8080
+  user: meshops
+
+queries:
+  - light_count
+  - medium_agg
+  - window_functions
+  - high_cardinality
+
+phases:
+  warmup:
+    enabled: true
+    queries: [light_count, medium_agg]
+  baseline:
+    enabled: true
+    runs: 5
+  concurrency_ramp:
+    enabled: true
+    query: medium_agg
+    levels: [1, 2, 4, 8, 16]
+  mixed_workload:
+    enabled: true
+    workers_per_query: 3
+  memory_pressure:
+    enabled: true
+    queries: [window_functions]
+    workers: 6
+  breaking_point:
+    enabled: false

@@ -1,0 +1,37 @@
+name: long_running
+description: >
+  Focuses on memory and latency under sustained load using the most
+  expensive queries (cross-catalog join, window functions, high-cardinality
+  aggregation). Intended to surface OOM and spill behaviour over time.
+
+trino:
+  url: http://localhost:8080
+  user: meshops
+  timeout: 600   # extended timeout for long-running queries
+
+queries:
+  - heavy_join
+  - window_functions
+  - high_cardinality
+  - cross_catalog
+
+phases:
+  warmup:
+    enabled: true
+    queries: [heavy_join, cross_catalog]
+  baseline:
+    enabled: true
+    runs: 5
+  concurrency_ramp:
+    enabled: true
+    query: cross_catalog
+    levels: [1, 2, 4, 8]
+  mixed_workload:
+    enabled: true
+    workers_per_query: 2
+  memory_pressure:
+    enabled: true
+    queries: [cross_catalog, window_functions, high_cardinality]
+    workers: 8
+  breaking_point:
+    enabled: false

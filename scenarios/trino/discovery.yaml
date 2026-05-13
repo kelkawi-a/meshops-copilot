@@ -1,0 +1,65 @@
+name: discovery
+description: >
+  Fully dynamic scenario: no queries are specified, so the skill walks
+  information_schema, detects join relationships, and synthesises all
+  stress queries from whatever schema it finds. Point this at any Trino
+  deployment and it will adapt automatically.
+
+trino:
+  url: http://localhost:8080
+  user: meshops
+
+# No 'queries:' block — triggers schema discovery.
+
+discovery:
+  enabled: true
+
+  # Restrict scan to specific catalogs (recommended for large clusters).
+  # When set, only these catalogs are scanned and all other filters are ignored.
+  # include_catalogs: [sales, salesforce, support]
+
+  # Additional catalogs to skip on top of the built-in exclusion list.
+  # Catalogs ending in _developer or _candidate are always excluded automatically.
+  # exclude_catalogs: []
+
+  # Additional schemas to skip on top of the built-in exclusion list.
+  # Always excluded: information_schema, pg_catalog, pg_toast, airbyte_internal.
+  # exclude_schemas: [raw, staging]
+
+  # Stop collecting tables once this many have been found across all catalogs.
+  max_tables: 50
+
+  # Number of tables to introspect in parallel.
+  max_workers: 8
+
+  # Seconds to wait for SHOW CATALOGS and per-catalog table listing.
+  catalog_timeout: 30
+
+  # Seconds to wait for column + row-count queries on a single table before
+  # skipping it.  External connectors (Marketo, Google Ads, etc.) can hang —
+  # lower this if discovery is still slow.
+  table_timeout: 15
+
+phases:
+  warmup:
+    enabled: true
+    # warmup queries are chosen automatically from discovered set
+  baseline:
+    enabled: true
+    runs: 5
+  concurrency_ramp:
+    enabled: true
+    query: heavy_join        # uses discovered heavy_join if available
+    levels: [1, 2, 4, 8, 16, 32]
+  mixed_workload:
+    enabled: true
+    workers_per_query: 2
+  memory_pressure:
+    enabled: true
+    queries: [cross_catalog, window_functions]
+    workers: 8
+  breaking_point:
+    enabled: true
+    query: heavy_join
+    levels: [32, 48, 64, 96]
+    stop_at_error_rate: 50

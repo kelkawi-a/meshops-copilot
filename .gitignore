@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual envs
+.venv/
+venv/
+env/
+.env
+
+# uv / poetry
+uv.lock
+poetry.lock
+.python-version
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Runtime output
+reports/*.md
+reports/*.json
+stress_results*.json
+
+# Secrets
+.env
+config/local.yaml
+config/demo.yaml
+
+# OS
+.DS_Store
+Thumbs.db
