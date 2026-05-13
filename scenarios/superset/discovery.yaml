@@ -1,0 +1,32 @@
+name: discovery_probe
+description: >
+  Discovery-first scenario for a non-workshop Superset instance.  No charts
+  are specified; the skill queries the Superset REST API to enumerate all
+  dashboards and charts, builds query_contexts from chart params, and then
+  runs a lightweight baseline + concurrency ramp against whatever it finds.
+  Use this as a starting point when onboarding a new Superset deployment.
+
+superset:
+  url: http://localhost:8088
+  user: admin
+  password: admin
+
+# No 'charts' key.  Discovery is explicitly enabled (also the default when
+# the key is absent) and capped at 100 charts to keep the run manageable.
+discovery:
+  enabled: true
+  max_charts: 100
+
+phases:
+  warmup:
+    enabled: true
+    # Warmup charts are auto-selected from the discovered catalogue.
+  baseline:
+    enabled: true
+    runs: 2
+  concurrency_ramp:
+    enabled: true
+    # Benchmark chart auto-selected as the slowest by baseline median.
+    levels: [1, 2, 4, 8]
+  breaking_point:
+    enabled: false

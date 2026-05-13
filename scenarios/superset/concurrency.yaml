@@ -1,0 +1,32 @@
+name: concurrency_focus
+description: >
+  Concurrency-focused test using only the three slowest charts from the
+  workshop stress run.  Skips full baseline to save time; ramps aggressively
+  to find the first error-producing concurrency level.
+
+superset:
+  url: http://localhost:8088
+  user: admin
+  password: admin
+
+charts:
+  - events_over_time
+  - daily_active_sessions
+  - top_pages_by_traffic
+
+phases:
+  warmup:
+    enabled: true
+  baseline:
+    enabled: true
+    runs: 2
+  concurrency_ramp:
+    enabled: true
+    chart: daily_active_sessions
+    levels: [2, 4, 8, 16, 24, 32]
+    stop_at_error_rate: 100
+  breaking_point:
+    enabled: true
+    chart: daily_active_sessions
+    levels: [32, 48, 64, 96]
+    stop_at_error_rate: 50

@@ -1,0 +1,37 @@
+name: workshop_full
+description: >
+  Full stress test of all 27 workshop Superset charts across the 3 dashboards
+  (eCommerce, Web Analytics, CRM).  Baseline each chart 3 times, then ramp
+  concurrency on the slowest chart (daily_active_sessions) up to 16 workers,
+  and probe the breaking point up to 48 workers.
+
+superset:
+  url: http://localhost:8088
+  user: admin
+  password: admin
+
+# No 'charts' key — uses all 27 built-in workshop charts from the embedded
+# catalogue.  Discovery is explicitly disabled so the skill skips the live
+# Superset API scan and goes straight to the builtin fallback.
+discovery:
+  enabled: false
+
+phases:
+  warmup:
+    enabled: true
+    charts:
+      - events_over_time
+      - daily_active_sessions
+      - top_pages_by_traffic
+  baseline:
+    enabled: true
+    runs: 3
+  concurrency_ramp:
+    enabled: true
+    chart: daily_active_sessions
+    levels: [1, 2, 4, 8, 16]
+  breaking_point:
+    enabled: true
+    chart: daily_active_sessions
+    levels: [16, 24, 32, 48]
+    stop_at_error_rate: 50

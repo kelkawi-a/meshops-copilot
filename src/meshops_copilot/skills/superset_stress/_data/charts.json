@@ -1,0 +1,1737 @@
+{
+  "total_revenue": {
+    "chart_id": 1,
+    "name": "Total Revenue",
+    "dashboard_id": 1,
+    "viz_type": "big_number_total",
+    "query_context": {
+      "datasource": {
+        "id": 1,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(total_amount)",
+              "label": "Total Revenue"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "SUM(total_amount)",
+          "label": "Total Revenue"
+        },
+        "viz_type": "big_number_total"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "total_orders": {
+    "chart_id": 2,
+    "name": "Total Orders",
+    "dashboard_id": 1,
+    "viz_type": "big_number_total",
+    "query_context": {
+      "datasource": {
+        "id": 1,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "COUNT(id)"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metric": {
+          "aggregate": "COUNT",
+          "column": {
+            "column_name": "id"
+          },
+          "expressionType": "SIMPLE",
+          "label": "COUNT(id)"
+        },
+        "viz_type": "big_number_total"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "total_users": {
+    "chart_id": 3,
+    "name": "Total Users",
+    "dashboard_id": 1,
+    "viz_type": "big_number_total",
+    "query_context": {
+      "datasource": {
+        "id": 4,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "COUNT(id)"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metric": {
+          "aggregate": "COUNT",
+          "column": {
+            "column_name": "id"
+          },
+          "expressionType": "SIMPLE",
+          "label": "COUNT(id)"
+        },
+        "viz_type": "big_number_total"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "daily_revenue": {
+    "chart_id": 4,
+    "name": "Daily Revenue",
+    "dashboard_id": 1,
+    "viz_type": "echarts_timeseries_line",
+    "query_context": {
+      "datasource": {
+        "id": 1,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": "P1D"
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "created_at"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(total_amount)",
+              "label": "Revenue"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 50000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter",
+          "granularity": "created_at"
+        }
+      ],
+      "form_data": {
+        "x_axis": "created_at",
+        "time_grain_sqla": "P1D",
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "SUM(total_amount)",
+            "label": "Revenue"
+          }
+        ],
+        "row_limit": 50000,
+        "viz_type": "echarts_timeseries_line"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "orders_by_status": {
+    "chart_id": 5,
+    "name": "Orders by Status",
+    "dashboard_id": 1,
+    "viz_type": "pie",
+    "query_context": {
+      "datasource": {
+        "id": 1,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "status"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Orders"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 100,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "groupby": [
+          "status"
+        ],
+        "metric": {
+          "aggregate": "COUNT",
+          "column": {
+            "column_name": "id"
+          },
+          "expressionType": "SIMPLE",
+          "label": "Orders"
+        },
+        "row_limit": 100,
+        "viz_type": "pie"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "revenue_by_product_category": {
+    "chart_id": 6,
+    "name": "Revenue by Product Category",
+    "dashboard_id": 1,
+    "viz_type": "echarts_timeseries_bar",
+    "query_context": {
+      "datasource": {
+        "id": 12,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "category"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(revenue)",
+              "label": "Revenue"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 50,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "SUM(revenue)",
+            "label": "Revenue"
+          }
+        ],
+        "row_limit": 50,
+        "viz_type": "echarts_timeseries_bar",
+        "x_axis": "category"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "top_countries_by_orders": {
+    "chart_id": 7,
+    "name": "Top Countries by Orders",
+    "dashboard_id": 1,
+    "viz_type": "table",
+    "query_context": {
+      "datasource": {
+        "id": 13,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "country"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(num_orders)",
+              "label": "Orders"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(revenue)",
+              "label": "Revenue"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 20,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "groupby": [
+          "country"
+        ],
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "SUM(num_orders)",
+            "label": "Orders"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "SUM(revenue)",
+            "label": "Revenue"
+          }
+        ],
+        "row_limit": 20,
+        "order_desc": true,
+        "viz_type": "table"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "new_user_registrations_over_time": {
+    "chart_id": 8,
+    "name": "New User Registrations Over Time",
+    "dashboard_id": 1,
+    "viz_type": "echarts_timeseries_bar",
+    "query_context": {
+      "datasource": {
+        "id": 4,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": "P1W"
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "created_at"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "New Users"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter",
+          "granularity": "created_at"
+        }
+      ],
+      "form_data": {
+        "x_axis": "created_at",
+        "time_grain_sqla": "P1W",
+        "metrics": [
+          {
+            "aggregate": "COUNT",
+            "column": {
+              "column_name": "id"
+            },
+            "expressionType": "SIMPLE",
+            "label": "New Users"
+          }
+        ],
+        "row_limit": 10000,
+        "viz_type": "echarts_timeseries_bar"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "total_events": {
+    "chart_id": 9,
+    "name": "Total Events",
+    "dashboard_id": 2,
+    "viz_type": "big_number_total",
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "COUNT(id)"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metric": {
+          "aggregate": "COUNT",
+          "column": {
+            "column_name": "id"
+          },
+          "expressionType": "SIMPLE",
+          "label": "COUNT(id)"
+        },
+        "viz_type": "big_number_total"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "unique_sessions": {
+    "chart_id": 10,
+    "name": "Unique Sessions",
+    "dashboard_id": 2,
+    "viz_type": "big_number_total",
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [],
+          "metrics": [
+            {
+              "aggregate": "COUNT_DISTINCT",
+              "column": {
+                "column_name": "session_id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Unique Sessions"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metric": {
+          "aggregate": "COUNT_DISTINCT",
+          "column": {
+            "column_name": "session_id"
+          },
+          "expressionType": "SIMPLE",
+          "label": "Unique Sessions"
+        },
+        "viz_type": "big_number_total"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "active_users": {
+    "chart_id": 11,
+    "name": "Active Users",
+    "dashboard_id": 2,
+    "viz_type": "big_number_total",
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [],
+          "metrics": [
+            {
+              "aggregate": "COUNT_DISTINCT",
+              "column": {
+                "column_name": "user_id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Active Users"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metric": {
+          "aggregate": "COUNT_DISTINCT",
+          "column": {
+            "column_name": "user_id"
+          },
+          "expressionType": "SIMPLE",
+          "label": "Active Users"
+        },
+        "viz_type": "big_number_total"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "events_over_time": {
+    "chart_id": 12,
+    "name": "Events Over Time",
+    "dashboard_id": 2,
+    "viz_type": "echarts_timeseries_line",
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": "P1D"
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "created_at",
+            "event_type"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Events"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 50000,
+          "series_columns": [
+            "event_type"
+          ],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter",
+          "granularity": "created_at"
+        }
+      ],
+      "form_data": {
+        "x_axis": "created_at",
+        "time_grain_sqla": "P1D",
+        "metrics": [
+          {
+            "aggregate": "COUNT",
+            "column": {
+              "column_name": "id"
+            },
+            "expressionType": "SIMPLE",
+            "label": "Events"
+          }
+        ],
+        "groupby": [
+          "event_type"
+        ],
+        "row_limit": 50000,
+        "viz_type": "echarts_timeseries_line"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "events_by_type": {
+    "chart_id": 13,
+    "name": "Events by Type",
+    "dashboard_id": 2,
+    "viz_type": "pie",
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "event_type"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Events"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 50,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "groupby": [
+          "event_type"
+        ],
+        "metric": {
+          "aggregate": "COUNT",
+          "column": {
+            "column_name": "id"
+          },
+          "expressionType": "SIMPLE",
+          "label": "Events"
+        },
+        "row_limit": 50,
+        "viz_type": "pie"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "top_pages_by_traffic": {
+    "chart_id": 14,
+    "name": "Top Pages by Traffic",
+    "dashboard_id": 2,
+    "viz_type": "table",
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "page"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Views"
+            },
+            {
+              "aggregate": "COUNT_DISTINCT",
+              "column": {
+                "column_name": "user_id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Unique Users"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 20,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "groupby": [
+          "page"
+        ],
+        "metrics": [
+          {
+            "aggregate": "COUNT",
+            "column": {
+              "column_name": "id"
+            },
+            "expressionType": "SIMPLE",
+            "label": "Views"
+          },
+          {
+            "aggregate": "COUNT_DISTINCT",
+            "column": {
+              "column_name": "user_id"
+            },
+            "expressionType": "SIMPLE",
+            "label": "Unique Users"
+          }
+        ],
+        "row_limit": 20,
+        "order_desc": true,
+        "viz_type": "table"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "events_by_page": {
+    "chart_id": 15,
+    "name": "Events by Page",
+    "dashboard_id": 2,
+    "viz_type": "echarts_timeseries_bar",
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "page"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Events"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 20,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metrics": [
+          {
+            "aggregate": "COUNT",
+            "column": {
+              "column_name": "id"
+            },
+            "expressionType": "SIMPLE",
+            "label": "Events"
+          }
+        ],
+        "row_limit": 20,
+        "order_desc": true,
+        "viz_type": "echarts_timeseries_bar",
+        "x_axis": "page"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "daily_active_sessions": {
+    "chart_id": 16,
+    "name": "Daily Active Sessions",
+    "dashboard_id": 2,
+    "viz_type": "echarts_timeseries_bar",
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": "P1D"
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "created_at"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT_DISTINCT",
+              "column": {
+                "column_name": "session_id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Sessions"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter",
+          "granularity": "created_at"
+        }
+      ],
+      "form_data": {
+        "x_axis": "created_at",
+        "time_grain_sqla": "P1D",
+        "metrics": [
+          {
+            "aggregate": "COUNT_DISTINCT",
+            "column": {
+              "column_name": "session_id"
+            },
+            "expressionType": "SIMPLE",
+            "label": "Sessions"
+          }
+        ],
+        "row_limit": 10000,
+        "viz_type": "echarts_timeseries_bar"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "total_campaigns": {
+    "chart_id": 17,
+    "name": "Total Campaigns",
+    "dashboard_id": 3,
+    "viz_type": "big_number_total",
+    "query_context": {
+      "datasource": {
+        "id": 8,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "COUNT(id)"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metric": {
+          "aggregate": "COUNT",
+          "column": {
+            "column_name": "id"
+          },
+          "expressionType": "SIMPLE",
+          "label": "COUNT(id)"
+        },
+        "viz_type": "big_number_total"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "open_support_tickets": {
+    "chart_id": 18,
+    "name": "Open Support Tickets",
+    "dashboard_id": 3,
+    "viz_type": "big_number_total",
+    "query_context": {
+      "datasource": {
+        "id": 6,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(CASE WHEN status = 'open' THEN 1 END)",
+              "label": "Open Tickets"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(CASE WHEN status = 'open' THEN 1 END)",
+          "label": "Open Tickets"
+        },
+        "viz_type": "big_number_total"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "avg_product_rating": {
+    "chart_id": 19,
+    "name": "Avg Product Rating",
+    "dashboard_id": 3,
+    "viz_type": "big_number_total",
+    "query_context": {
+      "datasource": {
+        "id": 7,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "ROUND(AVG(CAST(rating AS double)), 2)",
+              "label": "Avg Rating"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "ROUND(AVG(CAST(rating AS double)), 2)",
+          "label": "Avg Rating"
+        },
+        "viz_type": "big_number_total"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "support_tickets_by_status": {
+    "chart_id": 20,
+    "name": "Support Tickets by Status",
+    "dashboard_id": 3,
+    "viz_type": "pie",
+    "query_context": {
+      "datasource": {
+        "id": 6,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "status"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Tickets"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "groupby": [
+          "status"
+        ],
+        "metric": {
+          "aggregate": "COUNT",
+          "column": {
+            "column_name": "id"
+          },
+          "expressionType": "SIMPLE",
+          "label": "Tickets"
+        },
+        "viz_type": "pie"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "support_tickets_by_category": {
+    "chart_id": 21,
+    "name": "Support Tickets by Category",
+    "dashboard_id": 3,
+    "viz_type": "echarts_timeseries_bar",
+    "query_context": {
+      "datasource": {
+        "id": 6,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "category"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Tickets"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 20,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metrics": [
+          {
+            "aggregate": "COUNT",
+            "column": {
+              "column_name": "id"
+            },
+            "expressionType": "SIMPLE",
+            "label": "Tickets"
+          }
+        ],
+        "row_limit": 20,
+        "viz_type": "echarts_timeseries_bar",
+        "x_axis": "category"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "tickets_by_priority_over_time": {
+    "chart_id": 22,
+    "name": "Tickets by Priority Over Time",
+    "dashboard_id": 3,
+    "viz_type": "echarts_timeseries_line",
+    "query_context": {
+      "datasource": {
+        "id": 6,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": "P1W"
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "created_at",
+            "priority"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Tickets"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 50000,
+          "series_columns": [
+            "priority"
+          ],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter",
+          "granularity": "created_at"
+        }
+      ],
+      "form_data": {
+        "x_axis": "created_at",
+        "time_grain_sqla": "P1W",
+        "metrics": [
+          {
+            "aggregate": "COUNT",
+            "column": {
+              "column_name": "id"
+            },
+            "expressionType": "SIMPLE",
+            "label": "Tickets"
+          }
+        ],
+        "groupby": [
+          "priority"
+        ],
+        "row_limit": 50000,
+        "viz_type": "echarts_timeseries_line"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "product_rating_distribution": {
+    "chart_id": 23,
+    "name": "Product Rating Distribution",
+    "dashboard_id": 3,
+    "viz_type": "echarts_timeseries_bar",
+    "query_context": {
+      "datasource": {
+        "id": 7,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "rating"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Reviews"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metrics": [
+          {
+            "aggregate": "COUNT",
+            "column": {
+              "column_name": "id"
+            },
+            "expressionType": "SIMPLE",
+            "label": "Reviews"
+          }
+        ],
+        "row_limit": 10,
+        "viz_type": "echarts_timeseries_bar",
+        "x_axis": "rating"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "reviews_by_sentiment": {
+    "chart_id": 24,
+    "name": "Reviews by Sentiment",
+    "dashboard_id": 3,
+    "viz_type": "pie",
+    "query_context": {
+      "datasource": {
+        "id": 7,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "sentiment"
+          ],
+          "metrics": [
+            {
+              "aggregate": "COUNT",
+              "column": {
+                "column_name": "id"
+              },
+              "expressionType": "SIMPLE",
+              "label": "Reviews"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 10000,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "groupby": [
+          "sentiment"
+        ],
+        "metric": {
+          "aggregate": "COUNT",
+          "column": {
+            "column_name": "id"
+          },
+          "expressionType": "SIMPLE",
+          "label": "Reviews"
+        },
+        "viz_type": "pie"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "campaign_conversion_rate_by_channel": {
+    "chart_id": 25,
+    "name": "Campaign Conversion Rate by Channel",
+    "dashboard_id": 3,
+    "viz_type": "echarts_timeseries_bar",
+    "query_context": {
+      "datasource": {
+        "id": 14,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "channel"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "AVG(conversion_rate)",
+              "label": "Avg Conversion Rate %"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 20,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "AVG(conversion_rate)",
+            "label": "Avg Conversion Rate %"
+          }
+        ],
+        "row_limit": 20,
+        "viz_type": "echarts_timeseries_bar",
+        "x_axis": "channel"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "campaign_performance_table": {
+    "chart_id": 26,
+    "name": "Campaign Performance Table",
+    "dashboard_id": 3,
+    "viz_type": "table",
+    "query_context": {
+      "datasource": {
+        "id": 14,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "campaign",
+            "channel"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(total_responses)",
+              "label": "Responses"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(conversions)",
+              "label": "Conversions"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "AVG(conversion_rate)",
+              "label": "Conv. Rate %"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(budget)",
+              "label": "Budget"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 50,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "groupby": [
+          "campaign",
+          "channel"
+        ],
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "SUM(total_responses)",
+            "label": "Responses"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "SUM(conversions)",
+            "label": "Conversions"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "AVG(conversion_rate)",
+            "label": "Conv. Rate %"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "SUM(budget)",
+            "label": "Budget"
+          }
+        ],
+        "row_limit": 50,
+        "order_desc": true,
+        "viz_type": "table"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "customer_segment_sizes": {
+    "chart_id": 27,
+    "name": "Customer Segment Sizes",
+    "dashboard_id": 3,
+    "viz_type": "echarts_timeseries_bar",
+    "query_context": {
+      "datasource": {
+        "id": 15,
+        "type": "table"
+      },
+      "force": true,
+      "queries": [
+        {
+          "filters": [],
+          "extras": {
+            "having": "",
+            "where": "",
+            "time_grain_sqla": null
+          },
+          "applied_time_extras": {},
+          "columns": [
+            "segment_name"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(member_count)",
+              "label": "Members"
+            }
+          ],
+          "orderby": [],
+          "annotation_layers": [],
+          "row_limit": 20,
+          "series_columns": [],
+          "series_limit": 0,
+          "series_limit_metric": null,
+          "url_params": {},
+          "custom_params": {},
+          "custom_form_data": {},
+          "post_processing": [],
+          "time_range": "No filter"
+        }
+      ],
+      "form_data": {
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "SUM(member_count)",
+            "label": "Members"
+          }
+        ],
+        "row_limit": 20,
+        "viz_type": "echarts_timeseries_bar",
+        "x_axis": "segment_name"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  }
+}
