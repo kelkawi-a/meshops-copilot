@@ -25,8 +25,8 @@ def discover() -> None:
     help="Restrict to a data platform (e.g. postgresql, snowflake, bigquery).",
 )
 @click.option(
-    "--min-score", default=0.2, show_default=True, type=float,
-    help="Minimum candidate score threshold (0.0–1.0).",
+    "--min-score", default=0.0, show_default=True, type=float,
+    help="Minimum candidate score threshold (0.0–1.0). Defaults to 0 (show all, ranked).",
 )
 @click.option(
     "--top", "top_n", default=20, show_default=True, type=int,

@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  meshops:
+    build:
+      context: ../..
+      dockerfile: deploy/docker/Dockerfile
+    environment:
+      - TRINO_URL=${TRINO_URL:-http://trino:8080}
+      - TRINO_USER=${TRINO_USER:-meshops}
+      - MESHOPS_OUTPUT_DIR=/reports
+      - LLM_PROVIDER=${LLM_PROVIDER:-none}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    volumes:
+      - ../../reports:/reports
+      - ../../scenarios:/app/scenarios:ro
+      - ../../config:/app/config:ro
+    networks:
+      - meshops-net
+
+networks:
+  meshops-net:
+    external: true

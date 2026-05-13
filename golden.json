@@ -1,0 +1,4403 @@
+{
+  "generated_at": "2026-05-13T14:52:48.786771+00:00",
+  "golden_candidates": [],
+  "needs_work": [],
+  "anti_golden": [
+    {
+      "dashboard_id": 3115,
+      "title": "[RevOps] DC Alliances & Channels - Channel",
+      "score": 0.3764,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0044,
+        "unique_viewers_30d": 0.027,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 22,
+        "unique_viewers_30d": 9,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Santiago",
+          "John",
+          "Alena",
+          "Valeria"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 18,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3203,
+      "title": "[RevOps] Cloud Marketplace Unified",
+      "score": 0.3648,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0018,
+        "unique_viewers_30d": 0.018,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 9,
+        "unique_viewers_30d": 6,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Valeria",
+          "John",
+          "Alena",
+          "Santiago",
+          "Leo",
+          "Victoria",
+          "Henry"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 1464,
+      "title": "[GE] Customer Advocates & Promoter Pipeline",
+      "score": 0.3612,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0012,
+        "unique_viewers_30d": 0.015,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 6,
+        "unique_viewers_30d": 5,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Adaugo"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 9,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3034,
+      "title": "[RevOps] Sales Performance - Closed Won",
+      "score": 0.3584,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0014,
+        "unique_viewers_30d": 0.012,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 7,
+        "unique_viewers_30d": 4,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Santiago",
+          "Alena",
+          "John",
+          "Valeria"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 11,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3650,
+      "title": "[RevOps] Cloud Qualified Account Signals",
+      "score": 0.358,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.001,
+        "unique_viewers_30d": 0.012,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 5,
+        "unique_viewers_30d": 4,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Norbert",
+          "John",
+          "Santiago",
+          "Valeria",
+          "Alena"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 4,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 2317,
+      "title": "People Dashboard",
+      "score": 0.3552,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0012,
+        "unique_viewers_30d": 0.009,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 6,
+        "unique_viewers_30d": 3,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Felipe",
+          "Tanya"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 14,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3031,
+      "title": "[RevOps] Renewals Dashboard",
+      "score": 0.355,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.001,
+        "unique_viewers_30d": 0.009,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 5,
+        "unique_viewers_30d": 3,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Alena",
+          "Valeria",
+          "Santiago",
+          "John"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3387,
+      "title": "Content Performance Metrics",
+      "score": 0.3532,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0022,
+        "unique_viewers_30d": 0.006,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 11,
+        "unique_viewers_30d": 2,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Jonathan",
+          "Adaugo"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 84,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3220,
+      "title": "[RevOps] Scorecards (beta)",
+      "score": 0.3514,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0004,
+        "unique_viewers_30d": 0.006,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 2,
+        "unique_viewers_30d": 2,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Filip",
+          "Victoria",
+          "Valeria",
+          "Santiago",
+          "Alena",
+          "John"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 16,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3057,
+      "title": "[GE] Campaign & Lead Acquisition Dashboard",
+      "score": 0.3514,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0004,
+        "unique_viewers_30d": 0.006,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 2,
+        "unique_viewers_30d": 2,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Jonathan",
+          "Ceng",
+          "Adaugo"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 5,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3648,
+      "title": "[RevOps] Forecast Budget View",
+      "score": 0.349,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.001,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 5,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Alena"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3150,
+      "title": "[RevOps] Joint Go-to-Market",
+      "score": 0.3488,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0008,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 4,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Alena",
+          "John",
+          "Santiago",
+          "Valeria"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3188,
+      "title": "[RevOps] Sales Performance - IoT Devices",
+      "score": 0.3486,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0006,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 3,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Valeria",
+          "John",
+          "Santiago",
+          "Alena",
+          "Lee"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 8,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3531,
+      "title": "[TS] Key hiring metrics",
+      "score": 0.3484,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0004,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 2,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Sam",
+          "Karolina",
+          "Sijana"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 19,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3289,
+      "title": "[RevOps] Sales Data Quality",
+      "score": 0.3484,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0004,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 2,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Alena",
+          "Valeria",
+          "Santiago",
+          "John"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 12,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3611,
+      "title": "[TS] Time Spent On Hiring",
+      "score": 0.3484,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0004,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 2,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Shriya",
+          "Sijana"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3439,
+      "title": "[FinOps] Academy Contracts",
+      "score": 0.3484,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0004,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 2,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Alena",
+          "John",
+          "Valeria",
+          "Santiago"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 3,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3303,
+      "title": "Time Dashboard",
+      "score": 0.3484,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0004,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 2,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Sayb",
+          "Justin",
+          "Tanya"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3458,
+      "title": "[RevOps] Rules of engagement",
+      "score": 0.3482,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Leo",
+          "Santiago",
+          "John",
+          "Fernanda",
+          "Alena"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 6,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 1430,
+      "title": "[RevOps] Bookings to Finance Budget",
+      "score": 0.3482,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Santiago",
+          "Valeria",
+          "John",
+          "Alena"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 3,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3606,
+      "title": "PoC: Accounts matched to Zoominfo Companies",
+      "score": 0.3482,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Natalia"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 3,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3610,
+      "title": "[TS] demo HLdash",
+      "score": 0.3482,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Leah"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3527,
+      "title": "PoC: Enterprises with IT Budget: Current Funnel",
+      "score": 0.3482,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Natalia"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 21,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3455,
+      "title": "[TS] Diversity in Hiring",
+      "score": 0.3482,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Kornelia"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 20,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 352,
+      "title": "[GE] Customer Success Metrics - Renewals",
+      "score": 0.3482,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Adaugo",
+          "Ceng"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3293,
+      "title": "[TS] HL Monitoring",
+      "score": 0.3482,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Yagmur"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 23,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3395,
+      "title": "[RevOps] Forecast Finance View (wide access)",
+      "score": 0.3482,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Valeria",
+          "Alena",
+          "John",
+          "Santiago"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 3,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 2790,
+      "title": "Tiger Team Performance",
+      "score": 0.3482,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Jonathan",
+          "Adaugo",
+          "Ceng"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 5,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3116,
+      "title": "[Desktop] Ubuntu Insights",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Jean-Baptiste",
+          "Kat",
+          "John"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 6,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 1701,
+      "title": "[GE] Customer Success Enquiries",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Adaugo"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 34,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3449,
+      "title": "Partner Marketing - Channel ROI",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Ceng"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 14,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3608,
+      "title": "Academy Sales Overview (since March 15, 2026)",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Adrianna"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 13,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3529,
+      "title": "[RevOps] DC Sales Actuals",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Alena",
+          "John",
+          "Santiago",
+          "Valeria"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3615,
+      "title": "Jira Data Mesh Access Support Requests",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Kristi"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 951,
+      "title": "[GE] Marketing Budget Tracking",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Adaugo"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3297,
+      "title": "[TS] Jira tickets",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Sam"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 5,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3613,
+      "title": "Data Mesh - Data Quality",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Renan"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 5,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3649,
+      "title": "[RevOps] CPQ Education Discounts",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Valeria",
+          "Alena",
+          "John",
+          "Santiago"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3000,
+      "title": "Academy Items and Exam Quality",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Mauricio",
+          "Jonathan"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3392,
+      "title": "[RevOps] ED Metrics [copy]",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "John",
+          "Alena",
+          "Santiago",
+          "Valeria"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3605,
+      "title": "[TS] Hiring Associate Performance",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Shriya",
+          "Sijana"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3604,
+      "title": "Partner Enablement Influence",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Ceng"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 16,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3603,
+      "title": "Commercial Systems Jira Analysis",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Ali"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 12,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 2424,
+      "title": "[GE] Search Engine Optimisation (SEO)",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Adaugo"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 26,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3601,
+      "title": "[TS] Second Look",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Sam",
+          "Shriya",
+          "Hanna"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3307,
+      "title": "[RevOps] SQL Handoff Performance",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Valeria",
+          "Santiago",
+          "Alena",
+          "John"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3397,
+      "title": "[RevOps] Salesforce Account Ownership",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "John",
+          "Alena",
+          "Leo",
+          "Valeria",
+          "Santiago"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 3,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 2570,
+      "title": "[Enterprise] RAID Logs Dashboard",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Bogdan",
+          "M\u00e1t\u00e9"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3281,
+      "title": "DC Alliances & Channels - Channel (Trino) - Joel",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Valeria",
+          "Santiago",
+          "John",
+          "Alena"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 31,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3530,
+      "title": "[RevOps] Test - Prior Period Comparisons",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Santiago",
+          "Valeria",
+          "Alena",
+          "John"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 9,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3064,
+      "title": "Training Dashboard",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Arwa",
+          "Alina",
+          "Felipe",
+          "Tanya",
+          "Luke",
+          "Brooke",
+          "Gaby",
+          "Jasmine",
+          "Yifei",
+          "Trinh",
+          "Rachel",
+          "Jeanne",
+          "Vyshnavi",
+          "Sophie",
+          "Bharati"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3567,
+      "title": "[BSC] Events",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Mukhtar"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 8,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3568,
+      "title": "[RevOps] DC Alliances & Channels - GSI",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Santiago",
+          "Alena",
+          "John",
+          "Valeria"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 18,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3056,
+      "title": "[GE] Customer Success - Regional Analysis",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Adaugo"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 57,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3388,
+      "title": "Azure Usage",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Ceng"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 5,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3491,
+      "title": "[Internal] Pipeline Hygiene",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Valeria",
+          "Santiago",
+          "John",
+          "Alena"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 3,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3196,
+      "title": "Avg deal size exploration",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Ceng",
+          "Anastasia"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3026,
+      "title": "[RevOps] Dashboard User Activity",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Alena",
+          "Santiago",
+          "Maryann",
+          "John",
+          "Valeria"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3524,
+      "title": "Library Metadata Dashboard",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Nicolas"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 6,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3189,
+      "title": "[RevOps] Sales Performance - Pipeline",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Alena",
+          "Santiago",
+          "Valeria",
+          "John"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 8,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3009,
+      "title": "[GE] Customer Success - Risk Management",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Adaugo"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 2423,
+      "title": "[CanCon] orders",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Vedrana"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 8,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3441,
+      "title": "[RevOps] Jira Tickets",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Santiago",
+          "John",
+          "Valeria",
+          "Alena"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3277,
+      "title": "[RevOps] Forecast Finance View (restricted access)",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Valeria",
+          "Leo",
+          "Hernan",
+          "John",
+          "Alena",
+          "Santiago",
+          "Fernanda"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 6,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3533,
+      "title": "Specs Tutorial Dashboard",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Javier"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3149,
+      "title": "[RevOps] DC Alliances & Channel - Public Cloud",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "John",
+          "Santiago",
+          "Alena",
+          "Valeria"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3447,
+      "title": "[SE] Open cases",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Jake"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3042,
+      "title": "[RevOps] ED Metrics",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "John",
+          "Leo",
+          "Alena",
+          "Valeria",
+          "Santiago"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3448,
+      "title": "Content Strategy Planning",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Adaugo"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 2605,
+      "title": "[ CSM ] Cases per account Dashboard",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Javier"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3432,
+      "title": "SQL Quality dashboard",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Ceng",
+          "Adaugo",
+          "Claudio",
+          "Jonathan"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3234,
+      "title": "Lead generation - Monthly cohorts",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Adaugo",
+          "Ceng",
+          "Jonathan"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3204,
+      "title": "For Marina: Ubuntu Pro Awareness Campaigns",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Natalia"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3187,
+      "title": "[CanCon] Jira",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Vedrana"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3190,
+      "title": "[GE] Marketing Email Performance Overview",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Natalia"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3193,
+      "title": "Active Cases with Expired Assets",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Tom"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3200,
+      "title": "[RevOps] Account Lifecycle Status",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Stephanie",
+          "Valeria",
+          "Alena",
+          "John",
+          "Santiago"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3208,
+      "title": "[RevOps] Cloud G_P",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Valeria",
+          "John",
+          "Claudio",
+          "Ceng",
+          "Alena",
+          "Santiago"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3207,
+      "title": "[RevOps] Cloud AZ_P",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Alena",
+          "Valeria",
+          "John",
+          "Santiago",
+          "Ceng",
+          "Claudio"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3209,
+      "title": "[RevOps] Cloud AZ_M",
+      "score": 0.32,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.05
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Ceng",
+          "John",
+          "Claudio",
+          "Santiago",
+          "Alena",
+          "Valeria"
+        ],
+        "has_description": false,
+        "published": true,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3457,
+      "title": "[RevOps] CIQ Metrics",
+      "score": 0.2982,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Alena",
+          "Santiago",
+          "Mitchell",
+          "John",
+          "Valeria"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 3,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3453,
+      "title": "Recognition Awards",
+      "score": 0.2982,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Bharati",
+          "Felipe",
+          "Alina"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3010,
+      "title": "New Product Bubble Structure (PoC)",
+      "score": 0.2982,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "only 0% of datasets certified",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0002,
+        "unique_viewers_30d": 0.003,
+        "active_weeks_30d": 0.025,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 1,
+        "unique_viewers_30d": 1,
+        "active_weeks_30d": 1,
+        "owners": [
+          "Adaugo",
+          "Natalia"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3653,
+      "title": "[TS] test dashboard",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Shriya"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3652,
+      "title": "[ untitled dashboard ]",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Shriya"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3651,
+      "title": "[TS] Demo TS Interview Slots",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Leah"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 3,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3607,
+      "title": "[ untitled dashboard ]",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Ishani"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3243,
+      "title": "Talent Experience Tickets",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Gaby",
+          "Yifei",
+          "Jasmine",
+          "Felipe",
+          "Luke",
+          "Bharati",
+          "Arwa"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3532,
+      "title": "SaaS Seats Usage",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Claudio",
+          "Ali"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": true,
+        "days_since_change": 0,
+        "chart_count": 17,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3525,
+      "title": "Organic Traffic Performance",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Adaugo"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 3,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3396,
+      "title": "[RevOps] Sales Offboarding",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "John",
+          "Valeria",
+          "Santiago",
+          "Alena"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3389,
+      "title": "PM OKR Metrics by Product draft [copy for testing] ",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Jonathan",
+          "Adaugo"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 16,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3058,
+      "title": "[RevOps] 2025 Alliances [copy]",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Santiago",
+          "John",
+          "Valeria",
+          "Alena"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 4,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3244,
+      "title": "[Backup] [RevOps] 2025 Alliances",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "John",
+          "Alena",
+          "Santiago",
+          "Valeria"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 4,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3384,
+      "title": "[Backup] [RevOps] 2025 Alliances",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Valeria",
+          "Santiago",
+          "Alena",
+          "John"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3566,
+      "title": "[TS] Applications by source",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Sijana"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3443,
+      "title": "[RevOps] Attainment to Quota",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Alena",
+          "Valeria",
+          "John",
+          "Santiago",
+          "Hernan",
+          "Mitchell"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 4,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3341,
+      "title": "Time Dashboard [Dev]",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Tanya",
+          "Justin",
+          "Sayb",
+          "Jey"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 2,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3528,
+      "title": "IS Requests",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Maksim"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 1,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    },
+    {
+      "dashboard_id": 3526,
+      "title": "[ untitled dashboard ]",
+      "score": 0.27,
+      "category": "anti_golden",
+      "gaps": [
+        "missing description",
+        "not published",
+        "not certified",
+        "only 0% of datasets certified",
+        "no views in last 30 days (stale)",
+        "low recurring usage"
+      ],
+      "score_breakdown": {
+        "view_count_30d": 0.0,
+        "unique_viewers_30d": 0.0,
+        "active_weeks_30d": 0.0,
+        "has_owner": 0.1,
+        "days_stable": 0.0,
+        "certified_dataset_fraction": 0.0,
+        "low_error_rate": 0.1,
+        "acceptable_performance": 0.07,
+        "has_description": 0.0,
+        "published": 0.0
+      },
+      "signals": {
+        "view_count_30d": 0,
+        "unique_viewers_30d": 0,
+        "active_weeks_30d": 0,
+        "owners": [
+          "Natalia"
+        ],
+        "has_description": false,
+        "published": false,
+        "certified": false,
+        "days_since_change": 0,
+        "chart_count": 0,
+        "median_query_duration_ms": 0.0,
+        "p95_query_duration_ms": 0.0,
+        "error_rate": 0.0,
+        "certified_dataset_fraction": 0.0
+      }
+    }
+  ],
+  "duplicates": [
+    {
+      "dashboard_a": {
+        "id": 3115,
+        "title": "[RevOps] DC Alliances & Channels - Channel"
+      },
+      "dashboard_b": {
+        "id": 3568,
+        "title": "[RevOps] DC Alliances & Channels - GSI"
+      },
+      "jaccard_similarity": 1.0,
+      "shared_chart_count": 18,
+      "recommendation": "merge into '[RevOps] DC Alliances & Channels - Channel' (higher usage: 22 views)"
+    },
+    {
+      "dashboard_a": {
+        "id": 3222,
+        "title": "3222"
+      },
+      "dashboard_b": {
+        "id": 3303,
+        "title": "Time Dashboard"
+      },
+      "jaccard_similarity": 1.0,
+      "shared_chart_count": 2,
+      "recommendation": "merge into 'Time Dashboard' (higher usage: 2 views)"
+    },
+    {
+      "dashboard_a": {
+        "id": 3222,
+        "title": "3222"
+      },
+      "dashboard_b": {
+        "id": 3341,
+        "title": "Time Dashboard [Dev]"
+      },
+      "jaccard_similarity": 1.0,
+      "shared_chart_count": 2,
+      "recommendation": "merge into '3222' (higher usage: 0 views)"
+    },
+    {
+      "dashboard_a": {
+        "id": 3303,
+        "title": "Time Dashboard"
+      },
+      "dashboard_b": {
+        "id": 3341,
+        "title": "Time Dashboard [Dev]"
+      },
+      "jaccard_similarity": 1.0,
+      "shared_chart_count": 2,
+      "recommendation": "merge into 'Time Dashboard' (higher usage: 2 views)"
+    },
+    {
+      "dashboard_a": {
+        "id": 2790,
+        "title": "Tiger Team Performance"
+      },
+      "dashboard_b": {
+        "id": 3057,
+        "title": "[GE] Campaign & Lead Acquisition Dashboard"
+      },
+      "jaccard_similarity": 0.667,
+      "shared_chart_count": 4,
+      "recommendation": "merge into '[GE] Campaign & Lead Acquisition Dashboard' (higher usage: 2 views)"
+    }
+  ]
+}
