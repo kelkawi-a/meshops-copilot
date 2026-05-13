@@ -4,6 +4,12 @@ from __future__ import annotations
 
 from datetime import datetime
 
+from meshops_copilot.skills.duplicate_detector.auditor import (
+    AuditResult,
+    DashboardAction,
+    DashboardClassification,
+)
+
 from meshops_copilot.skills.duplicate_detector.models import (
     DetectionReason,
     DuplicateGroup,
@@ -197,3 +203,161 @@ def build_summary_prompt(groups: list[DuplicateGroup]) -> str:
         "duplication problem and the recommended consolidation action. "
         "Be direct and reference actual dashboard names."
     )
+
+
+# ── Audit report ──────────────────────────────────────────────────────────────
+
+def format_audit_report(result: AuditResult, generated_date: str | None = None) -> str:
+    """Render an ``AuditResult`` as the structured Markdown report.
+
+    Follows exactly the format specified in the duplicate-dashboard audit prompt:
+    summary table → overlap clusters → immediate deprecation list →
+    untitled dashboards → personal/playground dashboards.
+    """
+    date_str = generated_date or datetime.now().strftime("%Y-%m-%d")
+    s = result.summary
+    lines: list[str] = []
+
+    # ── Header ────────────────────────────────────────────────────────────────
+    lines += [
+        "# Superset Dashboard Duplicate & Overlap Report",
+        f"**Generated:** {date_str}",
+        f"**Total dashboards audited:** {s.total}",
+        "",
+        "---",
+        "",
+    ]
+
+    # ── Summary table ─────────────────────────────────────────────────────────
+    lines += [
+        "## Summary",
+        "| Category | Count |",
+        "|----------|-------|",
+        f"| Confirmed exact name duplicates | {s.exact_duplicates} |",
+        f"| Deprecated / legacy series | {s.deprecated_legacy} |",
+        f"| Unsupported / abandoned series | {s.unsupported} |",
+        f"| Explicit copy tokens | {s.copy_tokens} |",
+        f"| Old / test / dev version tokens | {s.old_test_dev} |",
+        f"| WIP / draft / staging | {s.wip_draft} |",
+        f"| Untitled dashboards | {s.untitled} |",
+        f"| Personal / playground | {s.personal} |",
+        f"| **Total immediate deprecation candidates** | **{s.total_deprecation_candidates}** |",
+        "",
+        "---",
+        "",
+    ]
+
+    # ── Overlap clusters (2+ members only) ────────────────────────────────────
+    multi_clusters = [c for c in result.clusters if len(c.members) >= 2]
+
+    lines += ["## Overlap Clusters", ""]
+    if not multi_clusters:
+        lines += [
+            "_No clusters with 2 or more dashboards found above the similarity threshold._",
+            "",
+        ]
+    else:
+        for idx, cluster in enumerate(multi_clusters, 1):
+            topic_title = cluster.topic.title() if cluster.topic else "Unknown Topic"
+            lines += [
+                f"### Cluster {idx} — {topic_title}",
+                "",
+                "| Superset ID | Dashboard Name | Classification | Action |",
+                "|-------------|----------------|----------------|--------|",
+            ]
+            for m in sorted(cluster.members, key=lambda r: r.superset_id or 0):
+                sid   = str(m.superset_id) if m.superset_id is not None else "—"
+                name  = m.name.replace("|", "\\|")
+                cls   = m.classification.value
+                act   = m.action.value
+                lines.append(f"| {sid} | {name} | {cls} | {act} |")
+            lines += ["", "---", ""]
+
+    # ── Immediate deprecation list ────────────────────────────────────────────
+    deprecate_records = [
+        r for r in result.all_records
+        if r.action == DashboardAction.DEPRECATE
+        and r.classification != DashboardClassification.UNTITLED
+        and r.classification != DashboardClassification.PERSONAL
+    ]
+
+    lines += ["## Immediate Deprecation List", ""]
+    if not deprecate_records:
+        lines += ["_No immediate deprecation candidates identified._", ""]
+    else:
+        lines += [
+            "| Superset ID | Name | Reason |",
+            "|-------------|------|--------|",
+        ]
+        for r in sorted(deprecate_records, key=lambda r: r.superset_id or 0):
+            sid    = str(r.superset_id) if r.superset_id is not None else "—"
+            name   = r.name.replace("|", "\\|")
+            reason = _deprecation_reason(r)
+            lines.append(f"| {sid} | {name} | {reason} |")
+        lines += [""]
+
+    lines += ["---", ""]
+
+    # ── Untitled dashboards ────────────────────────────────────────────────────
+    untitled = [
+        r for r in result.all_records
+        if r.classification == DashboardClassification.UNTITLED
+    ]
+    lines += ["## Untitled Dashboards (Bulk Cleanup)", ""]
+    if not untitled:
+        lines += ["_None found._", ""]
+    else:
+        lines += [
+            "| Superset ID | URN |",
+            "|-------------|-----|",
+        ]
+        for r in sorted(untitled, key=lambda r: r.superset_id or 0):
+            sid = str(r.superset_id) if r.superset_id is not None else "—"
+            lines.append(f"| {sid} | {r.urn} |")
+        lines += [""]
+
+    lines += ["---", ""]
+
+    # ── Personal / playground dashboards ─────────────────────────────────────
+    personal = [
+        r for r in result.all_records
+        if r.classification == DashboardClassification.PERSONAL
+    ]
+    lines += ["## Personal / Playground Dashboards (Review Required)", ""]
+    if not personal:
+        lines += ["_None found._", ""]
+    else:
+        lines += [
+            "| Superset ID | Name | Action |",
+            "|-------------|------|--------|",
+        ]
+        for r in sorted(personal, key=lambda r: r.superset_id or 0):
+            sid  = str(r.superset_id) if r.superset_id is not None else "—"
+            name = r.name.replace("|", "\\|")
+            lines.append(f"| {sid} | {name} | {r.action.value} |")
+
+    return "\n".join(lines) + "\n"
+
+
+def _deprecation_reason(r) -> str:
+    """Build a concise reason string for the deprecation list."""
+    DC = DashboardClassification
+    cls = r.classification
+    rep = f" — active replacement exists (ID {r.replacement_id})" if r.replacement_id else ""
+
+    if cls == DC.EXACT_DUPLICATE:
+        return f"Exact name duplicate{rep}"
+    if cls == DC.LEGACY:
+        tokens = ", ".join(r.status_tokens)
+        return f"Legacy/deprecated token ({tokens}){rep}"
+    if cls == DC.UNSUPPORTED_OWNERSHIP:
+        return f"Unsupported ownership prefix [{r.team_prefix}]"
+    if cls == DC.PERSONAL_COPY:
+        return f"Explicit copy token{rep}"
+    if cls == DC.SUPERSEDED_VERSION:
+        return f"Superseded version token ({', '.join(r.status_tokens)}){rep}"
+    if cls == DC.WIP_DRAFT:
+        return f"WIP/draft token ({', '.join(r.status_tokens)})"
+    if cls == DC.BROKEN_BACKUP:
+        return f"Broken/backup token ({', '.join(r.status_tokens)})"
+    return cls.value

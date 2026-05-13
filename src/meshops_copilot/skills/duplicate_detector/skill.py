@@ -37,6 +37,7 @@ from meshops_copilot.skills.duplicate_detector.detectors import (
 from meshops_copilot.skills.duplicate_detector.markdown import (
     build_consolidation_prompt,
     build_summary_prompt,
+    format_audit_report,
     format_deduplication_report,
 )
 from meshops_copilot.skills.duplicate_detector.models import DuplicateGroup
@@ -286,6 +287,126 @@ class DuplicateDetectorSkill(BaseSkill):
         )
 
     # ── Helpers ────────────────────────────────────────────────────────────────
+
+    def audit(
+        self,
+        platform: str | None = "superset",
+        domain: str | None = None,
+        max_dashboards: int = 5000,
+        output_path: str = "./superset_duplicate_dashboard_report.md",
+        **kwargs,
+    ) -> SkillResult:
+        """Name-based dashboard audit: strip tokens, cluster by topic, classify.
+
+        Fetches every dashboard from DataHub (paginating automatically), then
+        applies deterministic naming rules to detect duplicates, legacy series,
+        WIP copies, untitled placeholders, and personal playgrounds.
+
+        No entity-detail or lineage calls are made — only DataHub search
+        results (name + URN) are required, so this runs fast even against
+        large catalogues.
+
+        Args:
+            platform: Platform filter for DataHub search (default ``"superset"``).
+                      Pass ``None`` to audit all platforms.
+            domain:   Optional DataHub domain URN or name filter.
+            max_dashboards: Upper bound on dashboards to fetch (default 5 000).
+            output_path: Where to write the Markdown report.
+        """
+        from meshops_copilot.connectors.datahub_mcp import DataHubMCPConnector
+        from meshops_copilot.skills.duplicate_detector.auditor import build_audit
+
+        console.rule("[bold cyan]Dashboard Duplicate Audit[/bold cyan]")
+
+        try:
+            connector = DataHubMCPConnector(
+                gms_url=self._cfg.datahub.gms_url,
+                token=self._cfg.datahub.token,
+            )
+        except Exception as exc:
+            return self._failed([f"Could not create DataHub MCP connector: {exc}"])
+
+        entities: list[dict] = []
+        try:
+            with connector:
+                console.print(
+                    f"  Connected to DataHub MCP at "
+                    f"[cyan]{self._cfg.datahub.gms_url}[/cyan]"
+                )
+                filter_desc = " ".join(filter(None, [platform, domain])) or "all"
+                console.print(
+                    f"  Fetching all dashboards "
+                    f"(platform/domain: {filter_desc}, max: {max_dashboards})…"
+                )
+                entities = connector.search_dashboards(
+                    platform=platform,
+                    domain=domain,
+                    count=max_dashboards,
+                )
+                console.print(
+                    f"  Fetched [green]{len(entities)}[/green] dashboards."
+                )
+        except RuntimeError as exc:
+            return self._failed([str(exc)])
+        except Exception as exc:
+            return self._failed([f"DataHub MCP error: {exc}"])
+
+        if not entities:
+            return self._ok(
+                summary="No dashboards found matching the search criteria.",
+                details={"total": 0},
+            )
+
+        # ── Analyse ───────────────────────────────────────────────────────────
+        console.print("  Analysing names — extracting tokens and clustering…")
+        result = build_audit(entities)
+        s = result.summary
+
+        console.print(
+            f"  [green]{s.total_deprecation_candidates}[/green] deprecation "
+            f"candidates out of {s.total} dashboards."
+        )
+
+        # ── Write report ──────────────────────────────────────────────────────
+        md = format_audit_report(result)
+        out_path = Path(output_path)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(md)
+        console.print(f"  Report → [green]{out_path}[/green]")
+
+        # ── Console summary table ─────────────────────────────────────────────
+        from rich.table import Table as RichTable
+        t = RichTable(title="Audit Summary", show_lines=False)
+        t.add_column("Category", style="cyan")
+        t.add_column("Count", justify="right")
+        rows = [
+            ("Exact name duplicates",        s.exact_duplicates),
+            ("Deprecated / legacy",          s.deprecated_legacy),
+            ("Unsupported / abandoned",      s.unsupported),
+            ("Explicit copy tokens",         s.copy_tokens),
+            ("Old / test / dev tokens",      s.old_test_dev),
+            ("WIP / draft",                  s.wip_draft),
+            ("Untitled",                     s.untitled),
+            ("Personal / playground",        s.personal),
+            ("Total candidates",             s.total_deprecation_candidates),
+        ]
+        for label, count in rows:
+            style = "bold red" if label == "Total candidates" else ""
+            t.add_row(label, str(count), style=style)
+        console.print(t)
+
+        return self._ok(
+            summary=(
+                f"Audited {s.total} dashboards; "
+                f"{s.total_deprecation_candidates} deprecation candidates. "
+                f"Report: {out_path}"
+            ),
+            details={
+                "total": s.total,
+                "deprecation_candidates": s.total_deprecation_candidates,
+                "output": str(out_path),
+            },
+        )
 
     def _try_superset_connector(self):
         """Attempt to create and log into the Superset connector; return None on failure."""

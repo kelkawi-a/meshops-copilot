@@ -136,3 +136,90 @@ def dedupe_run(
             console.print(f"  [yellow]… and {len(result.errors) - 5} more[/yellow]")
     else:
         console.print(f"[green]Done:[/green] {result.summary}")
+
+
+@dedupe.command("audit")
+@click.option(
+    "--platform", default="superset", show_default=True,
+    help="Platform filter for DataHub search. Pass empty string for all platforms.",
+)
+@click.option(
+    "--domain", default=None,
+    help="Restrict to a DataHub domain URN or name.",
+)
+@click.option(
+    "--max-dashboards", default=5000, show_default=True, type=int,
+    help="Upper bound on dashboards to fetch (paginates automatically).",
+)
+@click.option(
+    "--output", default="./superset_duplicate_dashboard_report.md", show_default=True,
+    help="Path to write the Markdown audit report.",
+)
+@click.pass_context
+def dedupe_audit(
+    ctx: click.Context,
+    platform: str,
+    domain: str | None,
+    max_dashboards: int,
+    output: str,
+) -> None:
+    """Name-based audit of all Superset dashboards in DataHub.
+
+    Fetches every dashboard, strips team-ownership prefixes and status tokens
+    (copy, v2, WIP, legacy, unsupported, …), clusters by core topic, then
+    classifies each dashboard and produces a structured Markdown report.
+
+    \b
+    Token types detected:
+      - Team prefix     [TEAM] at start of name — stripped for clustering
+      - Copy markers    "copy", "copy of", "Copy 2"
+      - Version markers "v2", "version 3"
+      - Date stamps     "2024", "Jan 2024", "Q1 2024"
+      - Environment     "dev", "test", "staging", "UAT"
+      - WIP / draft     "WIP", "draft", "in progress"
+      - Deprecated      "old", "legacy", "deprecated", "archived"
+      - Unsupported     "unsupported" token or [Unsupported] ownership prefix
+      - Broken / backup "broken", "backup", "temp"
+      - Personal        "personal", "playground", FirstName LastName pattern
+
+    \b
+    The output report contains:
+      - Summary counts table
+      - Overlap clusters (2+ dashboards per topic)
+      - Immediate deprecation list with reasons
+      - Untitled dashboards (bulk cleanup)
+      - Personal / playground dashboards (review required)
+
+    \b
+    Examples:
+
+    \b
+      # Audit all Superset dashboards (default)
+      meshops dedupe audit
+
+    \b
+      # Audit a specific domain
+      meshops dedupe audit --domain finance
+
+    \b
+      # Audit all platforms, write to a custom path
+      meshops dedupe audit --platform "" --output ./reports/audit.md
+    """
+    cfg = load_config()
+
+    from meshops_copilot.skills.duplicate_detector.skill import DuplicateDetectorSkill
+
+    skill = DuplicateDetectorSkill(cfg)
+    result = skill.audit(
+        platform=platform or None,
+        domain=domain,
+        max_dashboards=max_dashboards,
+        output_path=output,
+    )
+
+    if result.status.value == "failed":
+        for err in result.errors:
+            console.print(f"[red]Error:[/red] {err}")
+        raise SystemExit(1)
+    else:
+        console.print(f"[green]Done:[/green] {result.summary}")
