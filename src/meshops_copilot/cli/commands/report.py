@@ -58,7 +58,7 @@ def report_run(
       # Skip LLM even if OPENAI_API_KEY is set
       meshops report run --no-llm
     """
-    cfg = load_config(ctx.obj.get("config_path"))
+    cfg = load_config()
 
     from meshops_copilot.skills.report_writer.skill import ReportWriterSkill
 

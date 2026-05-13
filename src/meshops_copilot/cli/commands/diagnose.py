@@ -39,7 +39,7 @@ def diagnose_run(
         meshops diagnose run "check CPU and memory pressure on trino pods"
         meshops diagnose run   # full diagnostic sweep (no LLM needed)
     """
-    cfg = load_config(ctx.obj.get("config_path") if ctx.obj else None)
+    cfg = load_config()
 
     # CLI flag overrides
     if url:
@@ -83,7 +83,7 @@ def diagnose_noisy_neighbor(ctx: click.Context, output: str | None, lookback: in
         meshops diagnose noisy-neighbor --lookback 24
         meshops diagnose noisy-neighbor --output reports/noisy.json
     """
-    cfg = load_config(ctx.obj.get("config_path") if ctx.obj else None)
+    cfg = load_config()
 
     from meshops_copilot.skills.noisy_neighbor.skill import NoisyNeighborSkill
 

@@ -45,7 +45,7 @@ def stress_run(
     # Load the scenario YAML first so its trino: block can feed into load_config()
     # as the lowest-priority layer (env vars and --config YAML still win over it).
     scenario_raw = _load_scenario_raw(scenario)
-    cfg = load_config(ctx.obj.get("config_path"), scenario_defaults=scenario_raw)
+    cfg = load_config(scenario_defaults=scenario_raw)
 
     # CLI flags take highest priority — overlay onto loaded config.
     if url:
@@ -75,7 +75,7 @@ def stress_run(
 def stress_superset(ctx: click.Context, scenario: str, output: str | None) -> None:
     """Execute a stress-test scenario against Superset."""
     scenario_raw = _load_scenario_raw(scenario)
-    cfg = load_config(ctx.obj.get("config_path"), scenario_defaults=scenario_raw)
+    cfg = load_config(scenario_defaults=scenario_raw)
 
     from meshops_copilot.skills.superset_stress.skill import SupersetStressSkill
 

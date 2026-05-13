@@ -1,12 +1,10 @@
 """Central configuration loading.
 
 Priority (highest → lowest):
-  1. Environment variables  (including those loaded from a .env file)
-  2. Config YAML file (--config flag or MESHOPS_CONFIG env var)
-  3. Built-in defaults
+  1. Environment variables  (including those loaded from a ``.env`` file)
+  2. Scenario defaults (only for stress-test commands)
+  3. Built-in dataclass defaults
 
-.env file
----------
 A ``.env`` file in the current working directory (or any parent) is loaded
 automatically via ``python-dotenv`` before env vars are read.  Variables
 already present in the shell environment take precedence over the file, so
@@ -20,7 +18,6 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-import yaml
 from dotenv import load_dotenv
 
 
@@ -89,16 +86,16 @@ def _env(key: str, default: str = "") -> str:
 
 
 def load_config(
-    path: str | Path | None = None,
     scenario_defaults: dict[str, Any] | None = None,
 ) -> MeshOpsConfig:
-    """Load config from YAML file (if provided) then overlay env vars.
+    """Load config from environment variables and ``.env`` file.
 
     Priority (highest → lowest):
       1. Environment variables / .env file
-      2. Config YAML (``--config`` flag or ``MESHOPS_CONFIG`` env var)
-      3. Scenario YAML ``trino:`` / ``superset:`` blocks (``scenario_defaults``)
-      4. Built-in class-level defaults
+      2. Scenario defaults (``scenario_defaults``) — optional, used by
+         stress-test commands to inject connection settings from scenario
+         YAML files.
+      3. Built-in class-level defaults
 
     Searches for a ``.env`` file starting from the current directory up to
     the filesystem root and loads it before reading any env vars.  Variables
@@ -108,33 +105,21 @@ def load_config(
     # override=False means real shell exports always win over the file.
     load_dotenv(override=False)
 
-    raw: dict[str, Any] = {}
-    if path is None:
-        env_path = _env("MESHOPS_CONFIG")
-        path = Path(env_path) if env_path else None
-
-    if path and Path(path).exists():
-        with open(path) as fh:
-            raw = yaml.safe_load(fh) or {}
-
     sd = scenario_defaults or {}
     cfg = MeshOpsConfig()
 
     # ── Trino ──────────────────────────────────────────────────────────────────
-    # Priority: env > config YAML > scenario YAML > built-in default
     st = sd.get("trino", {})
-    t = raw.get("trino", {})
-    cfg.trino.url = _env("TRINO_URL", t.get("url", st.get("url", cfg.trino.url)))
-    cfg.trino.user = _env("TRINO_USER", t.get("user", st.get("user", cfg.trino.user)))
-    cfg.trino.password = _env("TRINO_PASSWORD", t.get("password", st.get("password", cfg.trino.password)))
-    cfg.trino.timeout = int(t.get("timeout", st.get("timeout", cfg.trino.timeout)))
+    cfg.trino.url = _env("TRINO_URL", st.get("url", cfg.trino.url))
+    cfg.trino.user = _env("TRINO_USER", st.get("user", cfg.trino.user))
+    cfg.trino.password = _env("TRINO_PASSWORD", st.get("password", cfg.trino.password))
+    cfg.trino.timeout = int(_env("TRINO_TIMEOUT", str(st.get("timeout", cfg.trino.timeout))))
 
     # ── Superset ───────────────────────────────────────────────────────────────
     ss = sd.get("superset", {})
-    s = raw.get("superset", {})
-    cfg.superset.url = _env("SUPERSET_URL", s.get("url", ss.get("url", cfg.superset.url)))
-    cfg.superset.user = _env("SUPERSET_USER", s.get("user", ss.get("user", cfg.superset.user)))
-    cfg.superset.password = _env("SUPERSET_PASSWORD", s.get("password", ss.get("password", cfg.superset.password)))
+    cfg.superset.url = _env("SUPERSET_URL", ss.get("url", cfg.superset.url))
+    cfg.superset.user = _env("SUPERSET_USER", ss.get("user", cfg.superset.user))
+    cfg.superset.password = _env("SUPERSET_PASSWORD", ss.get("password", cfg.superset.password))
     _disc_enabled_env = _env("SUPERSET_DISCOVERY_ENABLED")
     if _disc_enabled_env:
         cfg.superset.discovery_enabled = _disc_enabled_env.lower() not in ("false", "0", "no")
@@ -143,48 +128,46 @@ def load_config(
         cfg.superset.discovery_max_charts = int(_disc_max_env)
 
     # ── Grafana ────────────────────────────────────────────────────────────────
-    g = raw.get("grafana", {})
-    cfg.grafana.url = _env("GRAFANA_URL", g.get("url", cfg.grafana.url))
-    cfg.grafana.token = _env("GRAFANA_TOKEN", g.get("token", cfg.grafana.token))
+    cfg.grafana.url = _env("GRAFANA_URL", cfg.grafana.url)
+    cfg.grafana.token = _env("GRAFANA_TOKEN", cfg.grafana.token)
 
     # ── DataHub ────────────────────────────────────────────────────────────────
-    d = raw.get("datahub", {})
-    cfg.datahub.gms_url = _env("DATAHUB_GMS_URL", d.get("gms_url", cfg.datahub.gms_url))
-    cfg.datahub.token = _env("DATAHUB_TOKEN", d.get("token", cfg.datahub.token))
+    cfg.datahub.gms_url = _env("DATAHUB_GMS_URL", cfg.datahub.gms_url)
+    cfg.datahub.token = (
+        _env("DATAHUB_GMS_TOKEN", None)          # SDK's canonical name
+        or _env("DATAHUB_TOKEN", None)           # alias used in .env
+        or cfg.datahub.token
+    )
 
     # ── Prometheus ─────────────────────────────────────────────────────────────
-    p = raw.get("prometheus", {})
-    cfg.prometheus.url = _env("PROMETHEUS_URL", p.get("url", cfg.prometheus.url))
+    cfg.prometheus.url = _env("PROMETHEUS_URL", cfg.prometheus.url)
 
     # ── LLM ────────────────────────────────────────────────────────────────────
-    ll = raw.get("llm", {})
-    cfg.llm.provider = _env("LLM_PROVIDER", ll.get("provider", cfg.llm.provider))
-    cfg.llm.model = _env("LLM_MODEL", ll.get("model", cfg.llm.model))
+    cfg.llm.provider = _env("LLM_PROVIDER", cfg.llm.provider)
+    cfg.llm.model = _env("LLM_MODEL", cfg.llm.model)
     # Prefer the key that matches the chosen provider; fall back to the others
     # so a single LLM_API_KEY or any provider key works as a catch-all.
-    _explicit = ll.get("api_key", "")
     if cfg.llm.provider == "openrouter":
         cfg.llm.api_key = (
             _env("OPENROUTER_API_KEY")
             or _env("OPENAI_API_KEY")
-            or _env("ANTHROPIC_API_KEY", _explicit)
+            or _env("ANTHROPIC_API_KEY")
         )
     elif cfg.llm.provider == "anthropic":
         cfg.llm.api_key = (
             _env("ANTHROPIC_API_KEY")
             or _env("OPENAI_API_KEY")
-            or _env("OPENROUTER_API_KEY", _explicit)
+            or _env("OPENROUTER_API_KEY")
         )
     else:  # openai or unknown
         cfg.llm.api_key = (
             _env("OPENAI_API_KEY")
             or _env("ANTHROPIC_API_KEY")
-            or _env("OPENROUTER_API_KEY", _explicit)
+            or _env("OPENROUTER_API_KEY")
         )
 
     # ── Output ─────────────────────────────────────────────────────────────────
-    o = raw.get("output", {})
-    cfg.output.dir = Path(_env("MESHOPS_OUTPUT_DIR", str(o.get("dir", cfg.output.dir))))
-    cfg.output.log_level = _env("MESHOPS_LOG_LEVEL", o.get("log_level", cfg.output.log_level))
+    cfg.output.dir = Path(_env("MESHOPS_OUTPUT_DIR", str(cfg.output.dir)))
+    cfg.output.log_level = _env("MESHOPS_LOG_LEVEL", cfg.output.log_level)
 
     return cfg

@@ -25,18 +25,10 @@ def test_env_override(monkeypatch):
     assert cfg.trino.user == "tester"
 
 
-def test_yaml_override(tmp_path: Path):
-    yaml_file = tmp_path / "test.yaml"
-    yaml_file.write_text("trino:\n  url: http://yaml-trino:8080\n  user: yaml-user\n")
-    cfg = load_config(yaml_file)
-    assert cfg.trino.url == "http://yaml-trino:8080"
-    assert cfg.trino.user == "yaml-user"
-
-
 # ── Priority order tests ───────────────────────────────────────────────────────
 
 def test_scenario_defaults_used_when_nothing_else_set():
-    """Scenario trino: block is used when no env var or config YAML is present."""
+    """Scenario trino: block is used when no env var is present."""
     scenario = {"trino": {"url": "http://scenario-trino:8080", "user": "scenario-user"}}
     cfg = load_config(scenario_defaults=scenario)
     assert cfg.trino.url == "http://scenario-trino:8080"
@@ -48,24 +40,6 @@ def test_env_wins_over_scenario_defaults(monkeypatch):
     monkeypatch.setenv("TRINO_URL", "http://env-trino:8080")
     scenario = {"trino": {"url": "http://scenario-trino:8080"}}
     cfg = load_config(scenario_defaults=scenario)
-    assert cfg.trino.url == "http://env-trino:8080"
-
-
-def test_config_yaml_wins_over_scenario_defaults(tmp_path: Path):
-    """Config YAML beats scenario YAML trino: block."""
-    yaml_file = tmp_path / "cfg.yaml"
-    yaml_file.write_text("trino:\n  url: http://yaml-trino:8080\n")
-    scenario = {"trino": {"url": "http://scenario-trino:8080"}}
-    cfg = load_config(yaml_file, scenario_defaults=scenario)
-    assert cfg.trino.url == "http://yaml-trino:8080"
-
-
-def test_env_wins_over_config_yaml(monkeypatch, tmp_path: Path):
-    """Env vars beat config YAML."""
-    monkeypatch.setenv("TRINO_URL", "http://env-trino:8080")
-    yaml_file = tmp_path / "cfg.yaml"
-    yaml_file.write_text("trino:\n  url: http://yaml-trino:8080\n")
-    cfg = load_config(yaml_file)
     assert cfg.trino.url == "http://env-trino:8080"
 
 

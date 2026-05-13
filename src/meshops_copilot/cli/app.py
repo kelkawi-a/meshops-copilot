@@ -12,14 +12,12 @@ from meshops_copilot.core.logging import setup_logging
 
 
 @click.group()
-@click.option("--config", default=None, metavar="PATH", help="Path to config YAML.")
 @click.option("--log-level", default="INFO", show_default=True, help="Logging verbosity.")
 @click.pass_context
-def cli(ctx: click.Context, config: str | None, log_level: str) -> None:
+def cli(ctx: click.Context, log_level: str) -> None:
     """MeshOps Copilot — AI-assisted data mesh operations."""
     setup_logging(log_level)
     ctx.ensure_object(dict)
-    ctx.obj["config_path"] = config
 
 
 cli.add_command(stress)

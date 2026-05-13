@@ -33,7 +33,7 @@ def discover() -> None:
     help="Maximum number of candidates to include in the report.",
 )
 @click.option(
-    "--max-datasets", default=500, show_default=True, type=int,
+    "--max-datasets", default=50, show_default=True, type=int,
     help="Maximum datasets to scan per DataHub search.",
 )
 @click.option(
@@ -43,6 +43,20 @@ def discover() -> None:
 @click.option(
     "--no-llm", is_flag=True, default=False,
     help="Skip LLM justifications even if an API key is configured.",
+)
+@click.option(
+    "--with-usage", is_flag=True, default=False,
+    help=(
+        "Fetch per-dataset query counts via get_dataset_queries. "
+        "Adds one MCP call per dataset — slower but improves scoring."
+    ),
+)
+@click.option(
+    "--with-lineage", is_flag=True, default=False,
+    help=(
+        "Fetch downstream lineage per dataset. "
+        "Adds one MCP call per dataset — slower but improves scoring."
+    ),
 )
 @click.pass_context
 def discover_run(
@@ -54,33 +68,42 @@ def discover_run(
     max_datasets: int,
     output: str,
     no_llm: bool,
+    with_usage: bool,
+    with_lineage: bool,
 ) -> None:
     """Score and rank DataHub datasets as data product candidates.
 
-    Signals collected via the DataHub MCP server:
+    Entity metadata is fetched in a single batched MCP call.
+    Usage and lineage signals require --with-usage / --with-lineage and add
+    one extra MCP call per dataset.
 
     \b
-      - Query frequency and unique users (30-day window)
-      - Downstream dashboard and dataset count (lineage graph)
+    Signals collected:
       - Ownership (individual owners and teams)
       - Schema field count and description presence
+      - Tags and domain membership
+      - Query counts (--with-usage)
+      - Downstream dashboard / dataset count (--with-lineage)
 
     Examples:
 
     \b
-      # Scan all datasets, write reports/data_products.md
-      meshops discover run
+      # Fast scan — entity metadata only
+      meshops discover run --no-llm
+
+    \b
+      # Include usage and lineage signals (slower)
+      meshops discover run --no-llm --with-usage --with-lineage
 
     \b
       # Filter to the finance domain, return top 10
-      meshops discover run --domain finance --top 10
+      meshops discover run --domain finance --top 10 --no-llm
 
     \b
       # Filter by platform, skip LLM justifications
       meshops discover run --platform postgresql --no-llm
     """
-    config_path = ctx.obj.get("config_path") if ctx.obj else None
-    cfg = load_config(config_path)
+    cfg = load_config()
 
     from meshops_copilot.skills.data_product_discovery.skill import (
         DataProductDiscoverySkill,
@@ -94,6 +117,8 @@ def discover_run(
         top_n=top_n,
         max_datasets=max_datasets,
         no_llm=no_llm,
+        with_usage=with_usage,
+        with_lineage=with_lineage,
     )
 
     if result.status.value == "failed":
