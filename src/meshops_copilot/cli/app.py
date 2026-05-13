@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import click
 
+from meshops_copilot.cli.commands.assess import assess
+from meshops_copilot.cli.commands.dedupe import dedupe
 from meshops_copilot.cli.commands.stress import stress
 from meshops_copilot.cli.commands.diagnose import diagnose
 from meshops_copilot.cli.commands.discover import discover
@@ -20,6 +22,8 @@ def cli(ctx: click.Context, log_level: str) -> None:
     ctx.ensure_object(dict)
 
 
+cli.add_command(assess)
+cli.add_command(dedupe)
 cli.add_command(stress)
 cli.add_command(diagnose)
 cli.add_command(discover)

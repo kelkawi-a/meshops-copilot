@@ -1,0 +1,20 @@
+name: golden_report_assessment
+description: >
+  Assess all Superset dashboards for golden report candidacy.
+  Collects usage, ownership, performance, and dataset quality signals
+  over a rolling window and categorises dashboards into golden
+  candidates, needs-work, anti-golden, and duplicate pairs.
+
+# Connection details are read from .env by default.
+# Uncomment below to override for a specific environment:
+# superset:
+#   url: https://superset.staging.canonical.com
+#   user: analyst
+#   password: ...       # prefer .env: SUPERSET_PASSWORD
+
+golden_report:
+  lookback_days: 30
+  max_log_records: 50000
+  duplicate_threshold: 0.50     # Jaccard similarity for chart overlap
+  golden_min_score: 0.65
+  needs_work_min_score: 0.40

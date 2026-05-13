@@ -255,6 +255,118 @@ class SupersetConnector:
         except Exception as exc:
             raise ConnectorError(f"get_chart({chart_id}) failed: {exc}") from exc
 
+    # ── Log / activity data ──────────────────────────────────────────────────
+
+    def get_logs(
+        self,
+        action: str | None = None,
+        since: str | None = None,
+        max_records: int = 50_000,
+        page_size: int = 100,
+        timeout: int | None = None,
+    ) -> list[dict]:
+        """GET /api/v1/log/ with optional RISON filters.
+
+        Parameters
+        ----------
+        action:
+            If given, server-side filter ``action == value`` (e.g. ``"dashboard"``).
+        since:
+            ISO-8601 timestamp string.  Rows with ``dttm >= since`` are kept.
+        max_records:
+            Hard cap on total records fetched.
+        page_size:
+            Records per page (Superset default cap is 100).
+        timeout:
+            Per-page timeout in seconds.  Defaults to ``self.timeout * 3``
+            (log table queries are typically slow).
+        """
+        self._ensure_logged_in()
+        results: list[dict] = []
+        page = 0
+        page_timeout = timeout or self.timeout * 3
+
+        filters: list[str] = []
+        if action:
+            filters.append(f"(col:action,opr:eq,value:'{action}')")
+        if since:
+            filters.append(f"(col:dttm,opr:gt,value:'{since}')")
+        rison_q = f"(page_size:{page_size},page:{{page}},order_column:dttm,order_direction:desc"
+        if filters:
+            rison_q += f",filters:!({','.join(filters)})"
+        rison_q += ")"
+
+        while len(results) < max_records:
+            url = f"{self.url}/api/v1/log/?q={rison_q.format(page=page)}"
+            req = urllib.request.Request(url, headers=self._headers())
+            try:
+                body = json.loads(self._open(req, timeout=page_timeout))
+            except urllib.error.HTTPError as exc:
+                if exc.code == 404:
+                    break            # log API not available
+                raise ConnectorError(f"get_logs page {page} failed: {exc}") from exc
+            except (TimeoutError, OSError) as exc:
+                # Log table can be enormous; return what we have so far
+                # rather than crashing the entire skill.
+                if results:
+                    break
+                raise ConnectorError(
+                    f"get_logs timed out on page {page} ({page_timeout}s). "
+                    f"The log table may be too large — consider a narrower "
+                    f"lookback window or smaller max_records."
+                ) from exc
+            except Exception as exc:
+                raise ConnectorError(f"get_logs page {page} failed: {exc}") from exc
+
+            page_results = body.get("result", [])
+            results.extend(page_results)
+
+            total = body.get("count", len(results))
+            if len(page_results) < page_size or len(results) >= total:
+                break
+            page += 1
+
+        return results[:max_records]
+
+    # ── Dataset metadata ──────────────────────────────────────────────────────
+
+    def list_datasets(self, max_items: int = 500) -> list[dict]:
+        """GET /api/v1/dataset/ — paginated list of dataset objects."""
+        self._ensure_logged_in()
+        results: list[dict] = []
+        page = 0
+        page_size = min(max_items, 100)
+
+        while len(results) < max_items:
+            url = f"{self.url}/api/v1/dataset/?q=(page_size:{page_size},page:{page})"
+            req = urllib.request.Request(url, headers=self._headers())
+            try:
+                body = json.loads(self._open(req))
+            except Exception as exc:
+                raise ConnectorError(f"list_datasets failed: {exc}") from exc
+
+            page_results = body.get("result", [])
+            results.extend(page_results)
+
+            if len(page_results) < page_size or len(results) >= body.get("count", len(results)):
+                break
+            page += 1
+
+        return results[:max_items]
+
+    def get_dataset(self, dataset_id: int) -> dict:
+        """GET /api/v1/dataset/{id} — single dataset with certification info."""
+        self._ensure_logged_in()
+        req = urllib.request.Request(
+            f"{self.url}/api/v1/dataset/{dataset_id}",
+            headers=self._headers(),
+        )
+        try:
+            body = json.loads(self._open(req))
+            return body.get("result", {})
+        except Exception as exc:
+            raise ConnectorError(f"get_dataset({dataset_id}) failed: {exc}") from exc
+
     # ── Docker resource sampling ───────────────────────────────────────────────
 
     @staticmethod
