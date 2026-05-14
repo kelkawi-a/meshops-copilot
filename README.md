@@ -2,6 +2,24 @@
 
 AI-assisted data mesh operations — stress testing, observability diagnostics, data discovery, and reporting.
 
+## Tooling Summary
+
+MeshOps Copilot provides a CLI (`meshops`) with six command groups and nine skills spanning stress testing, observability, governance, and reporting:
+
+| Command | Subcommand | Skill | Status | Description |
+|---|---|---|---|---|
+| `meshops stress` | `run` | `trino_stress` | Implemented | Multi-phase Trino load testing with dynamic schema discovery |
+| `meshops stress` | `superset` | `superset_stress` | Implemented | Concurrent Superset chart stress testing with auto-discovery |
+| `meshops diagnose` | `run` | `grafana_diagnostics` | Implemented | Prometheus metrics + Loki log analysis with LLM synthesis |
+| `meshops diagnose` | `noisy-neighbor` | `noisy_neighbor` | Implemented | Detect dashboards/users causing disproportionate Trino load |
+| `meshops discover` | `run` | `data_product_discovery` | Implemented | Score and rank DataHub datasets as data product candidates |
+| `meshops dedupe` | `run` | `duplicate_detector` | Implemented | Pairwise duplicate dashboard detection via DataHub |
+| `meshops dedupe` | `audit` | `duplicate_detector` | Implemented | Fast name-based dashboard audit and classification |
+| `meshops assess` | `golden-reports` | `golden_report` | Implemented | Assess Superset dashboards for golden report candidacy |
+| `meshops report` | `run` | `report_writer` | Implemented | Compile stress results into Markdown reports with optional LLM analysis |
+
+---
+
 ## Installation
 
 Requires Python 3.12 and [uv](https://github.com/astral-sh/uv) (or pip).
@@ -75,11 +93,19 @@ The YAML is merged with lower priority than environment variables, so you can ke
 | `SUPERSET_PASSWORD` | Superset password |
 | `SUPERSET_DISCOVERY_ENABLED` | `true` / `false` — enable/disable live chart discovery (default `true`) |
 | `SUPERSET_DISCOVERY_MAX_CHARTS` | Max charts to fetch during discovery (default `500`) |
+| `GRAFANA_URL` | Grafana base URL |
+| `GRAFANA_TOKEN` | Grafana service account token |
+| `PROMETHEUS_URL` | Prometheus URL (fallback when Grafana is not available) |
+| `DATAHUB_GMS_URL` | DataHub GMS URL |
+| `DATAHUB_TOKEN` | DataHub authentication token (alias: `DATAHUB_GMS_TOKEN`) |
 | `MESHOPS_CONFIG` | Path to config YAML |
 | `MESHOPS_OUTPUT_DIR` | Directory for output files (default: `./reports`) |
 | `MESHOPS_LOG_LEVEL` | `DEBUG` / `INFO` / `WARNING` (default: `INFO`) |
+| `LLM_PROVIDER` | LLM provider: `openai` / `anthropic` / `openrouter` / `none` |
+| `LLM_MODEL` | Model string for the chosen provider (default: `gpt-4o`) |
 | `OPENAI_API_KEY` | OpenAI key for LLM-enriched reports (optional) |
 | `ANTHROPIC_API_KEY` | Anthropic key for LLM-enriched reports (optional) |
+| `OPENROUTER_API_KEY` | OpenRouter key for LLM-enriched reports (optional) |
 
 See `.env.example` for the full list and `docs/configuration.md` for detailed explanations.
 
@@ -519,42 +545,227 @@ noise ratio, and severity classification.
 
 ---
 
-### `datahub_discovery` — Data product and governance discovery
+### `data_product_discovery` — DataHub data product candidate scoring
 
-> **Status: not yet implemented.**
+Scores and ranks DataHub datasets as data product candidates. Evaluates signals including ownership, schema completeness, tags, domain assignment, query counts, and downstream lineage to produce a ranked list of datasets ready for promotion.
 
-Planned: search DataHub for candidate data products, golden reports, and duplicate dashboards. Scores assets by usage, ownership completeness, and downstream adoption.
+#### Prerequisites
+
+1. A DataHub instance with the GMS API accessible.
+2. (Optional) An LLM API key for AI-generated justifications and executive summaries.
+
+#### Setup
 
 ```bash
-# Coming soon
-meshops discover run
+DATAHUB_GMS_URL=http://localhost:8080
+DATAHUB_TOKEN=your-token-here
+
+# Optional — enables LLM justifications
+LLM_PROVIDER=openai
+LLM_MODEL=gpt-4o
+OPENAI_API_KEY=sk-...
 ```
+
+#### Quick start
+
+```bash
+# Score top 20 datasets across all platforms
+meshops discover run
+
+# Filter by domain and platform, include usage and lineage signals
+meshops discover run --domain marketing --platform snowflake \
+  --with-usage --with-lineage --top 10
+
+# Skip LLM and just score
+meshops discover run --no-llm --max-datasets 100
+
+# Write results to a custom directory
+meshops discover run --output reports/discovery/
+```
+
+#### CLI options
+
+| Flag | Description |
+|---|---|
+| `--domain DOMAIN` | Filter datasets by DataHub domain |
+| `--platform PLATFORM` | Filter datasets by platform (e.g. `snowflake`, `bigquery`) |
+| `--min-score FLOAT` | Minimum score threshold (default: 0.0) |
+| `--top N` | Number of top candidates to return (default: 20) |
+| `--max-datasets N` | Max datasets to evaluate (default: 50) |
+| `--output DIR` | Output directory (default: `./reports`) |
+| `--no-llm` | Skip LLM justifications and summaries |
+| `--with-usage` | Include query count signals |
+| `--with-lineage` | Include downstream lineage signals |
+
+#### Output
+
+Results are written as timestamped Markdown and JSON files in the output directory, with a `data_products.md` latest copy.
+
+---
+
+### `duplicate_detector` — Dashboard duplicate detection
+
+Detects duplicate Superset dashboards via DataHub metadata. Offers two modes: full pairwise detection with multi-signal scoring, and a fast name-based audit.
+
+#### Full detection (`meshops dedupe run`)
+
+Searches DataHub for dashboards, collects metadata signals (name similarity, chart-set overlap, dataset overlap, glossary terms, optional SQL fingerprints), scores pairs, clusters via union-find, and optionally generates LLM consolidation notes.
+
+```bash
+# Default — top 20 pairs, min confidence 0.4
+meshops dedupe run
+
+# Filter by platform and domain
+meshops dedupe run --platform superset --domain analytics
+
+# Include lineage and SQL fingerprinting, higher confidence threshold
+meshops dedupe run --with-lineage --with-sql --min-confidence 0.6
+
+# Skip LLM consolidation notes
+meshops dedupe run --no-llm --max-dashboards 100
+```
+
+#### CLI options (dedupe run)
+
+| Flag | Description |
+|---|---|
+| `--platform PLATFORM` | Dashboard platform filter |
+| `--domain DOMAIN` | DataHub domain filter |
+| `--min-confidence FLOAT` | Minimum duplicate confidence (default: 0.4) |
+| `--top N` | Max pairs to report (default: 20) |
+| `--max-dashboards N` | Max dashboards to evaluate (default: 100) |
+| `--output DIR` | Output directory (default: `./reports`) |
+| `--no-llm` | Skip LLM consolidation notes |
+| `--with-lineage` | Include lineage signals |
+| `--with-sql` | Include SQL fingerprint comparison |
+
+#### Name-based audit (`meshops dedupe audit`)
+
+A fast, deterministic audit that strips prefixes and tokens from dashboard names, clusters by topic, and classifies dashboards as copies, legacy, WIP, untitled, personal, deprecated, or test. No entity-detail API calls required.
+
+```bash
+# Audit all Superset dashboards
+meshops dedupe audit
+
+# Audit a specific platform with higher dashboard limit
+meshops dedupe audit --platform superset --max-dashboards 5000
+
+# Custom output path
+meshops dedupe audit --output reports/audit.md
+```
+
+#### CLI options (dedupe audit)
+
+| Flag | Description |
+|---|---|
+| `--platform PLATFORM` | Dashboard platform (default: `superset`) |
+| `--domain DOMAIN` | DataHub domain filter |
+| `--max-dashboards N` | Max dashboards to scan (default: 5000) |
+| `--output PATH` | Output file (default: `./superset_duplicate_dashboard_report.md`) |
+
+#### Output
+
+Both modes produce timestamped Markdown and JSON reports in the output directory, plus a `duplicate_dashboards.md` latest symlink.
+
+---
+
+### `golden_report` — Golden report assessment
+
+Assesses Superset dashboards for golden report candidacy by combining dashboard metadata, activity logs, chart-to-dashboard mappings, and dataset certification status into a composite score. Categorises dashboards into four buckets:
+
+- **Golden candidates** — high-quality, well-adopted dashboards ready for certification
+- **Needs work** — promising dashboards that need improvements (e.g. missing ownership, low adoption)
+- **Anti-golden** — dashboards with anti-patterns (unbounded queries, excessive chart count)
+- **Duplicates to merge** — dashboard pairs with high chart-set overlap (Jaccard similarity)
+
+#### Quick start
+
+```bash
+# Assess dashboards over the last 30 days (default)
+meshops assess golden-reports
+
+# Shorter lookback window
+meshops assess golden-reports --lookback 7
+
+# Adjust duplicate detection sensitivity
+meshops assess golden-reports --duplicate-threshold 0.60
+
+# Write results to a custom path
+meshops assess golden-reports --output reports/golden.json
+```
+
+#### CLI options
+
+| Flag | Description |
+|---|---|
+| `--lookback DAYS` | How many days of activity history to analyze (default: 30) |
+| `--max-log-records N` | Max activity log records to fetch (default: 50000) |
+| `--duplicate-threshold FLOAT` | Jaccard similarity threshold for duplicate detection (default: 0.50) |
+| `--output PATH` | Write JSON results to a file |
+
+#### Configuration
+
+Uses the same Superset connection details from `.env`:
+
+```bash
+SUPERSET_URL=https://superset.company.com
+SUPERSET_USER=analyst
+SUPERSET_PASSWORD=secret
+```
+
+#### Output
+
+Results are saved as JSON and printed as Rich tables to the terminal, with dashboards grouped by category and scored.
+
+---
+
+### `report_writer` — Report generation
+
+Compiles stress test results (JSON) into a structured Markdown report, optionally enriched with LLM-generated narrative analysis and Trino tuning recommendations.
+
+#### Quick start
+
+```bash
+# Generate a report from the default stress_results.json
+meshops report run
+
+# Specify one or more result files
+meshops report run --results reports/trino_run.json --results reports/superset_run.json
+
+# Skip LLM analysis
+meshops report run --no-llm
+
+# Custom output directory
+meshops report run --output reports/weekly/
+```
+
+#### CLI options
+
+| Flag | Description |
+|---|---|
+| `--results FILE` | Stress results JSON file (repeatable; default: `stress_results.json`) |
+| `--output DIR` | Output directory (default: `./reports`) |
+| `--no-llm` | Skip LLM narrative and recommendations |
+
+#### Output
+
+Generates a timestamped Markdown report in the output directory, with a `report.md` latest copy. When LLM is enabled, the report includes executive summary, bottleneck analysis, and tuning recommendations.
 
 ---
 
 ### `superset_quality` — Dashboard quality analysis
 
-> **Status: not yet implemented.**
+> **Status: partially implemented** (models and noisy-neighbor detection only).
 
 Planned: lint Superset dashboards for anti-patterns (missing filters, unbounded queries, excessive chart count) and detect noisy-neighbour charts that consume disproportionate query resources.
 
-```bash
-# Coming soon
-meshops diagnose run
-```
-
 ---
 
-### `report_writer` — MeshOps Copilot Report generation
+### `datahub_discovery` — Legacy data product and governance discovery
 
-> **Status: not yet implemented.**
+> **Status: stub** — superseded by `data_product_discovery` and `duplicate_detector`.
 
-Planned: compile results from all skills into the structured report below, optionally enriched with LLM-generated narrative using the configured provider (`OPENAI_API_KEY` / `ANTHROPIC_API_KEY`).
-
-```bash
-# Coming soon
-meshops report run --output reports/
-```
+The original monolithic discovery skill has been replaced by the more focused `meshops discover run` and `meshops dedupe run` / `meshops dedupe audit` commands above.
 
 ---
 
